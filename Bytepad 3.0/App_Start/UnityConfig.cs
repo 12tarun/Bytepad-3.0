@@ -15,7 +15,9 @@ namespace Bytepad_3._0
             // it is NOT necessary to register your controllers
             
             container.RegisterType<IExamType, ExamType>();
-            
+            container.RegisterType<ISession, Session>();
+            container.RegisterType<ISemester, Semester>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

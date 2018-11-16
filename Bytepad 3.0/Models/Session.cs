@@ -5,10 +5,34 @@ using System.Web;
 
 namespace Bytepad_3._0.Models
 {
-    public class Session
+    public class Session : ISession
     {
         public int Id { get; set; }
         public string EachSession { get; set; }
-
+        public List<Session> GetAllSessions()
+        {
+            List<Session> dataSession = new List<Session>();
+            try
+            {
+                using (BytepadDBEntities db = new BytepadDBEntities())
+                {
+                    List<tblSession> dataTblSession = new List<tblSession>();
+                    dataTblSession = db.tblSessions.ToList();
+                    foreach(var item in dataTblSession)
+                    {
+                        dataSession.Add(new Session
+                        {
+                            Id = item.Id,
+                            EachSession = item.Session,
+                        });
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                string error = ex.ToString();
+            }
+            return dataSession;
+        }
     }
 }

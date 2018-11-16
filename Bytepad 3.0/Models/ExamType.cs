@@ -12,9 +12,9 @@ namespace Bytepad_3._0.Models
         public List<ExamType> GetAllExamTypes()
         {
             List<ExamType> dataExamType = new List<ExamType>();
-            using (BytepadDBEntities db = new BytepadDBEntities())
+            try
             {
-                try
+                using (BytepadDBEntities db = new BytepadDBEntities())
                 {
                     List<tblExamType> dataTblExamType = new List<tblExamType>();
                     dataTblExamType = db.tblExamTypes.ToList();
@@ -27,10 +27,10 @@ namespace Bytepad_3._0.Models
                         });
                     }
                 }
-                catch (Exception ex)
-                {
-                    string error = ex.ToString();
-                }   
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
             }
             return dataExamType;
         }
