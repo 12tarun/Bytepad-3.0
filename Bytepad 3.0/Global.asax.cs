@@ -16,6 +16,7 @@ namespace Bytepad_3._0
         {
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
+            UnityConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
         }
