@@ -23,8 +23,9 @@ namespace Bytepad_3._0.Controllers
         // GET: Addpapers
         public ActionResult Upload()
         {
-
-            IExamType _examType = new 
+            ViewBag.examType = _examType.GetAllExamTypes();
+            ViewBag.session = _session.GetAllSessions();
+            ViewBag.semester = _semester.GetAllSemesters();
             return View();
         }
     }
