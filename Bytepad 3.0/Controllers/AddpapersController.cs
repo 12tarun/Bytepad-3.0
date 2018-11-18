@@ -21,12 +21,22 @@ namespace Bytepad_3._0.Controllers
         }
 
         // GET: Addpapers
+        [HttpGet]
         public ActionResult Upload()
         {
             ViewBag.examType = _examType.GetAllExamTypes();
             ViewBag.session = _session.GetAllSessions();
             ViewBag.semester = _semester.GetAllSemesters();
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Upload(Paper objPaper, List<HttpPostedFileBase> listOfPapers)
+        {
+            List<string> listOfRejectedFiles = new List<string>();
+        //    bool isFillPaper = // fill paper ke interface se interaction ??   objFillPaper.filledPapers();
+
+            return RedirectToAction("Upload");
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Bytepad_3._0
             container.RegisterType<IExamType, ExamType>();
             container.RegisterType<ISession, Session>();
             container.RegisterType<ISemester, Semester>();
+            container.RegisterType<ISubject, Subject>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

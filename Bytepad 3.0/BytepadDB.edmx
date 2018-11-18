@@ -40,8 +40,8 @@
           <Property Name="SubjectId" Type="int" Nullable="false" />
           <Property Name="ExamTypeId" Type="int" Nullable="false" />
           <Property Name="SemesterType" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="PaperType" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="FileUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PaperType" Type="nvarchar(max)" />
+          <Property Name="FileUrl" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tblSession">
           <Key>
@@ -201,8 +201,8 @@
           <Property Name="SubjectId" Type="Int32" Nullable="false" />
           <Property Name="ExamTypeId" Type="Int32" Nullable="false" />
           <Property Name="SemesterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PaperType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FileUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaperType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblAdmin" Relationship="Self.FK_tblPaper_tblAdmin" FromRole="tblPaper" ToRole="tblAdmin" />
           <NavigationProperty Name="tblExamType" Relationship="Self.FK_tblPaper_tblExamType1" FromRole="tblPaper" ToRole="tblExamType" />
           <NavigationProperty Name="tblSession" Relationship="Self.FK_tblPaper_tblSession" FromRole="tblPaper" ToRole="tblSession" />
