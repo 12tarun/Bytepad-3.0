@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
 
 namespace Bytepad_3._0.Models
 {
@@ -20,6 +21,7 @@ namespace Bytepad_3._0.Models
         {
             try
             {
+                List<string> rejectedFiles = new List<string>();
                 foreach (HttpPostedFileBase item in ListOfPapers)
                 {
                     // Filling subject table with new subjects
@@ -43,8 +45,8 @@ namespace Bytepad_3._0.Models
                         _subject.AddSubjects(_subject);
                     }
 
-                    // Creating paper type and file url then filling paper table with new papers
-                    
+                    // Creating paper type and file url and then filling paper table with new papers. Store all files in PaperFileUpload in project too.
+
                     if(item.FileName.Contains("Solution") || item.FileName.Contains("solution") || item.FileName.Contains("SOLUTION"))
                     {
                         objPaper.PaperType = "Solution";
@@ -54,14 +56,41 @@ namespace Bytepad_3._0.Models
                         objPaper.PaperType = "Question";
                     }
 
+                    string fileUrl = $"{objPaper.SessionId.ToString()}\\{objPaper.SemesterType.ToString()}\\{item.FileName}";
+                    bool findPaperByFileUrl = _paper.FindPaper(fileUrl);
+                    if(findPaperByFileUrl != true)
+                    {
+                        rejectedFiles.Add(item.FileName);
+                    }
+                    else
+                    {
+                        _paper.SubjectId = _subject.Id;
+                        _paper.ExamTypeId = objPaper.ExamTypeId;
+                        _paper.SessionId = objPaper.SessionId;
+                        _paper.SemesterType = objPaper.SemesterType;
+                        _paper.PaperType = objPaper.PaperType;
+                        _paper.FileUrl = fileUrl;
+                        _paper.AddPaper(_paper);
 
-                    _paper.SubjectId = _subject.Id;
-                    _paper.ExamTypeId = objPaper.ExamTypeId;
-                    _paper.SessionId = objPaper.SessionId;
-                    _paper.SemesterType = objPaper.SemesterType;
-                    _paper.PaperType = objPaper.PaperType;
-                    // file url left..
+                        string path =
+                            HttpContext.Current.Server.MapPath
+                            ("~/PaperFileUpload/" + _paper.GetExamTypeOfPaper(_paper.ExamTypeId) + "/" + _paper.GetSessionOfPaper(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0]);
+
+                        if(!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+
+                        string finalPath =
+                            HttpContext.Current.Server.MapPath
+                            ("~/PaperFileUpload/" + _paper.GetExamTypeOfPaper(_paper.ExamTypeId) + "/" + _paper.GetSessionOfPaper(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0] + "/" + inputFileNames[1]);
+
+                        item.SaveAs(finalPath);
+                    }
                 }
+                listOfRejectedFiles = rejectedFiles;
+
+                // return something and work on controller as upload is done successfully. Ek baar ye code check kar lena.
             }
             catch (Exception ex)
             {

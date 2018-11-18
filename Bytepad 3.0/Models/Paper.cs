@@ -15,14 +15,14 @@ namespace Bytepad_3._0.Models
         public string SemesterType { get; set; }
         public string PaperType { get; set; }
         public string FileUrl { get; set; }
-        public bool FindPaper(IPaper dataPaper)
+        public bool FindPaper(string fileUrl)
         {
             bool present = false;
             try
             {
                 using (BytepadDBEntities db = new BytepadDBEntities())
                 {
-                    var check = db.tblPapers.FirstOrDefault(data => data.FileUrl.Equals(dataPaper.FileUrl));
+                    var check = db.tblPapers.FirstOrDefault(data => data.FileUrl.Equals(fileUrl));
                     if (check != null)
                     {
                         present = true;
@@ -45,11 +45,11 @@ namespace Bytepad_3._0.Models
                     {
                         AdminId = 1,
                         SessionId = dataPaper.SessionId,
-                  //    SubjectId = dataPaper.SubjectId,
+                        SubjectId = dataPaper.SubjectId,
                         ExamTypeId = dataPaper.ExamTypeId,
                         SemesterType = dataPaper.SemesterType,
-                  //      PaperType = dataPaper.PaperType,
-                  //      FileUrl = dataPaper.FileUrl
+                        PaperType = dataPaper.PaperType,
+                        FileUrl = dataPaper.FileUrl
                     };
                     db.tblPapers.Add(dataTblPaper);
                     db.SaveChanges();
@@ -60,6 +60,39 @@ namespace Bytepad_3._0.Models
                 string error = ex.ToString();
             }
         }
-
+        public string GetExamTypeOfPaper(int id)
+        {
+            string foundExamType = "";
+            try
+            {
+                using (BytepadDBEntities db = new BytepadDBEntities())
+                {
+                    var found = db.tblPapers.FirstOrDefault(data => data.ExamTypeId == id);
+                    foundExamType = found.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
+            return foundExamType;
+        }
+        public string GetSessionOfPaper(int id)
+        {
+            string foundSession = "";
+            try
+            {
+                using (BytepadDBEntities db = new BytepadDBEntities())
+                {
+                    var found = db.tblPapers.FirstOrDefault(data => data.SessionId == id);
+                    foundSession = found.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
+            return foundSession;
+        }
     }
 }

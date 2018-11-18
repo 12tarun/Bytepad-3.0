@@ -10,8 +10,9 @@
         string SemesterType { get; set; }
         int SessionId { get; set; }
         int SubjectId { get; set; }
-
-        void AddPaper(Paper dataPaper);
-        bool FindPaper(Paper dataPaper);
+        void AddPaper(IPaper dataPaper);
+        bool FindPaper(string dataPaper);
+        string GetExamTypeOfPaper(int id);
+        string GetSessionOfPaper(int id);
     }
 }
