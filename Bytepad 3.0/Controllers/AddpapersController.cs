@@ -34,8 +34,8 @@ namespace Bytepad_3._0.Controllers
         public ActionResult Upload(Paper objPaper, List<HttpPostedFileBase> listOfPapers)
         {
             List<string> listOfRejectedFiles = new List<string>();
-        //    bool isFillPaper = // fill paper ke interface se interaction ??   objFillPaper.filledPapers();
-
+        //  bool isFillPaper = // fill paper ke interface se interaction ??   objFillPaper.filledPapers();
+            
             return RedirectToAction("Upload");
         }
     }

@@ -59,8 +59,7 @@ namespace Bytepad_3._0.Models
             {
                 using (BytepadDBEntities db = new BytepadDBEntities())
                 {
-                    tblSubject check = new tblSubject();
-                    check = db.tblSubjects.FirstOrDefault(data => data.SubjectName == dataSubject.SubjectName);
+                    var check = db.tblSubjects.FirstOrDefault(data => data.SubjectName.Equals(dataSubject.SubjectName));
                     if(check != null)
                     {
                         present = true;

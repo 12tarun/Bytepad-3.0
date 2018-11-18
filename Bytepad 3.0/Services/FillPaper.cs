@@ -5,20 +5,27 @@ using System.Web;
 
 namespace Bytepad_3._0.Models
 {
-    public class FillPaper : Paper
+    public class FillPaper
     {
         private ISubject _subject = null;
-        public FillPaper(ISubject subject)
+        private IPaper _paper = null;
+
+        public FillPaper(ISubject subject, IPaper paper)
         {
             _subject = subject;
+            _paper = paper;
         }
+
         public bool filledPapers(Paper objPaper, List<HttpPostedFileBase> ListOfPapers, out List<string> listOfRejectedFiles)
         {
             try
             {
-                foreach (var item in ListOfPapers)
+                foreach (HttpPostedFileBase item in ListOfPapers)
                 {
-                    _subject.SubjectName = item.FileName;
+                    // Filling subject table with new subjects
+
+                    string[] inputFileNames = item.FileName.Split('/');
+                    _subject.SubjectName = inputFileNames[1].ToString();
                     if (_subject.SubjectName != null)
                     {
                         _subject.SubjectName = _subject.SubjectName.Replace(@".DOCX", "");
@@ -35,7 +42,25 @@ namespace Bytepad_3._0.Models
                     {
                         _subject.AddSubjects(_subject);
                     }
-                    // create url of subject and add paperurl to db along with paper type
+
+                    // Creating paper type and file url then filling paper table with new papers
+                    
+                    if(item.FileName.Contains("Solution") || item.FileName.Contains("solution") || item.FileName.Contains("SOLUTION"))
+                    {
+                        objPaper.PaperType = "Solution";
+                    }
+                    else
+                    {
+                        objPaper.PaperType = "Question";
+                    }
+
+
+                    _paper.SubjectId = _subject.Id;
+                    _paper.ExamTypeId = objPaper.ExamTypeId;
+                    _paper.SessionId = objPaper.SessionId;
+                    _paper.SemesterType = objPaper.SemesterType;
+                    _paper.PaperType = objPaper.PaperType;
+                    // file url left..
                 }
             }
             catch (Exception ex)
