@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBBytepadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAdmin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblAdmin" FromRole="tblAdmin" ToRole="tblPaper" />
+  </EntityType>
+  <EntityType Name="tblExamType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExamType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblExamType" FromRole="tblExamType" ToRole="tblPaper" />
+  </EntityType>
+  <EntityType Name="tblPaper">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminId" Type="Int32" Nullable="false" />
+    <Property Name="SessionId" Type="Int32" Nullable="false" />
+    <Property Name="SubjectId" Type="Int32" Nullable="false" />
+    <Property Name="ExamTypeId" Type="Int32" Nullable="false" />
+    <Property Name="SemesterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PaperType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblAdmin" Relationship="Self.FK_tblPaper_tblAdmin" FromRole="tblPaper" ToRole="tblAdmin" />
+    <NavigationProperty Name="tblExamType" Relationship="Self.FK_tblPaper_tblExamType" FromRole="tblPaper" ToRole="tblExamType" />
+    <NavigationProperty Name="tblSession" Relationship="Self.FK_tblPaper_tblSession" FromRole="tblPaper" ToRole="tblSession" />
+    <NavigationProperty Name="tblSubject" Relationship="Self.FK_tblPaper_tblSubject" FromRole="tblPaper" ToRole="tblSubject" />
+  </EntityType>
+  <EntityType Name="tblSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Session" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblSession" FromRole="tblSession" ToRole="tblPaper" />
+  </EntityType>
+  <EntityType Name="tblSubject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblSubject" FromRole="tblSubject" ToRole="tblPaper" />
+  </EntityType>
+  <Association Name="FK_tblPaper_tblAdmin">
+    <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="1" />
+    <End Role="tblPaper" Type="Self.tblPaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdmin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPaper">
+        <PropertyRef Name="AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPaper_tblExamType">
+    <End Role="tblExamType" Type="Self.tblExamType" Multiplicity="1" />
+    <End Role="tblPaper" Type="Self.tblPaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblExamType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPaper">
+        <PropertyRef Name="ExamTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPaper_tblSession">
+    <End Role="tblSession" Type="Self.tblSession" Multiplicity="1" />
+    <End Role="tblPaper" Type="Self.tblPaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSession">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPaper">
+        <PropertyRef Name="SessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPaper_tblSubject">
+    <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="1" />
+    <End Role="tblPaper" Type="Self.tblPaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSubject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPaper">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BytepadDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
+    <EntitySet Name="tblExamTypes" EntityType="Self.tblExamType" />
+    <EntitySet Name="tblPapers" EntityType="Self.tblPaper" />
+    <EntitySet Name="tblSessions" EntityType="Self.tblSession" />
+    <EntitySet Name="tblSubjects" EntityType="Self.tblSubject" />
+    <AssociationSet Name="FK_tblPaper_tblAdmin" Association="Self.FK_tblPaper_tblAdmin">
+      <End Role="tblAdmin" EntitySet="tblAdmins" />
+      <End Role="tblPaper" EntitySet="tblPapers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPaper_tblExamType" Association="Self.FK_tblPaper_tblExamType">
+      <End Role="tblExamType" EntitySet="tblExamTypes" />
+      <End Role="tblPaper" EntitySet="tblPapers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPaper_tblSession" Association="Self.FK_tblPaper_tblSession">
+      <End Role="tblSession" EntitySet="tblSessions" />
+      <End Role="tblPaper" EntitySet="tblPapers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPaper_tblSubject" Association="Self.FK_tblPaper_tblSubject">
+      <End Role="tblSubject" EntitySet="tblSubjects" />
+      <End Role="tblPaper" EntitySet="tblPapers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
