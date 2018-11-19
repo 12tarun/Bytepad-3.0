@@ -19,6 +19,7 @@ namespace Bytepad_3._0
             container.RegisterType<ISemester, Semester>();
             container.RegisterType<ISubject, Subject>();
             container.RegisterType<IPaper, Paper>();
+            container.RegisterType<IFillPaper, FillPaper>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

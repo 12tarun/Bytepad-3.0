@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Bytepad_3._0.Models
 {
-    public class FillPaper
+    public class FillPaper : IFillPaper
     {
         private ISubject _subject = null;
         private IPaper _paper = null;
@@ -17,11 +17,11 @@ namespace Bytepad_3._0.Models
             _paper = paper;
         }
 
-        public bool filledPapers(Paper objPaper, List<HttpPostedFileBase> ListOfPapers, out List<string> listOfRejectedFiles)
+        public void FilledPapers(Paper objPaper, List<HttpPostedFileBase> ListOfPapers, out List<string> listOfRejectedFiles)
         {
+            List<string> rejectedFiles = new List<string>();
             try
             {
-                List<string> rejectedFiles = new List<string>();
                 foreach (HttpPostedFileBase item in ListOfPapers)
                 {
                     // Filling subject table with new subjects
@@ -88,14 +88,12 @@ namespace Bytepad_3._0.Models
                         item.SaveAs(finalPath);
                     }
                 }
-                listOfRejectedFiles = rejectedFiles;
-
-                // return something and work on controller as upload is done successfully. Ek baar ye code check kar lena.
             }
             catch (Exception ex)
             {
                 string error = ex.ToString();
             }
+            listOfRejectedFiles = rejectedFiles;
         }
     }
 }

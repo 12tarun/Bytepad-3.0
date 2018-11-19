@@ -12,12 +12,14 @@ namespace Bytepad_3._0.Controllers
         private IExamType _examType = null;
         private ISession _session = null;
         private ISemester _semester = null;
+        private IFillPaper _fillPaper = null;
 
-        public AddpapersController(IExamType examType, ISession session, ISemester semester)
+        public AddpapersController(IExamType examType, ISession session, ISemester semester, IFillPaper fillPaper)
         {
             _examType = examType;
             _session = session;
             _semester = semester;
+            _fillPaper = fillPaper;
         }
 
         // GET: Addpapers
@@ -27,16 +29,24 @@ namespace Bytepad_3._0.Controllers
             ViewBag.examType = _examType.GetAllExamTypes();
             ViewBag.session = _session.GetAllSessions();
             ViewBag.semester = _semester.GetAllSemesters();
+            if(TempData["failure"]!=null)
+            {
+                ViewBag.rejectedFiles = TempData["failure"];
+            }
             return View();
         }
 
+        // POST: Addpapers
         [HttpPost]
         public ActionResult Upload(Paper objPaper, List<HttpPostedFileBase> listOfPapers)
         {
             List<string> listOfRejectedFiles = new List<string>();
-        //  bool isFillPaper = // fill paper ke interface se interaction ??   objFillPaper.filledPapers();
-            
+            _fillPaper.FilledPapers(objPaper, listOfPapers, out listOfRejectedFiles);
+            TempData["success"] = "Successfully Added!";
+            TempData["failure"] = listOfRejectedFiles;
             return RedirectToAction("Upload");
+
+            // view mein thoda code bacha hai..
         }
     }
 }

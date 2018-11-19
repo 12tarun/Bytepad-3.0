@@ -1,40 +1,78 @@
 ﻿@model Bytepad_3._0.Models.Paper
 
 @{
-    ViewBag.Title = "Upload";
+    ViewBag.Title = "Upload Papers";
+}
+@{
+    var message = TempData["success"] ?? string.Empty;
 }
 
-<h3>Upload Papers</h3>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<form class="form-horizontal">
-    <div class="form-group" style="padding-top:5%">
-        <label class="control-label col-sm-2" for="email">Exam Type:</label>
-        <div class="dropdown">
-            @Html.DropDownListFor(Model => Model.ExamTypeId, new SelectList(ViewBag.examType, "Id", "Exam"), "Select Exam Type", new { @style = "width:100%;height:27px;", required = "required" })
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="email">Session:</label>
-        <div class="dropdown">
-            @Html.DropDownListFor(Model => Model.SessionId, new SelectList(ViewBag.session, "Id", "EachSession"), "Select Session", new { @style = "width:100%;height:27px;", required = "required" })
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="email">Semester:</label>
-        <div class="dropdown">
-            @Html.DropDownListFor(Model => Model.SemesterType, new SelectList(ViewBag.semester, "Id", "SemesterType"), "Select Semester", new { @style = "width:100%;height:27px;", required = "required" })
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="email">Upload File:</label>
-        <div>
-            <input type="file" name="ListOfPaper" class="btn btn-primary" webkitdirectory required />
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <input type="submit" value="Upload" class="btn btn-primary" />
-        </div>
-    </div>
-</form>
 
+
+@using (Html.BeginForm("Upload", "Addpapers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    if (ViewBag.rejectedFiles != null)
+    {
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog" style="position:initial">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Numbers of Files Rejected :@ViewBag.rejectedFiles.Count</h4>
+                        <h4 class="modal-title">Url of files rejected</h4>
+                    </div>
+                    <div class="modal-body">
+                        @foreach (var item in ViewBag.rejectedFiles)
+                        {
+
+                            <strong>@item</strong><hr />
+                        }
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+
+    <form class="form-horizontal">
+        <div class="form-group" style="padding-top:5%">
+            <label class="control-label col-sm-2" for="email">Exam Type:</label>
+            <div class="dropdown">
+                @Html.DropDownListFor(Model => Model.ExamTypeId, new SelectList(ViewBag.examType, "Id", "Exam"), "Select Exam Type", new { @style = "width:100%;height:27px;", required = "required" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Session:</label>
+            <div class="dropdown">
+                @Html.DropDownListFor(Model => Model.SessionId, new SelectList(ViewBag.session, "Id", "EachSession"), "Select Session", new { @style = "width:100%;height:27px;", required = "required" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Semester:</label>
+            <div class="dropdown">
+                @Html.DropDownListFor(Model => Model.SemesterType, new SelectList(ViewBag.semester, "Id", "SemesterType"), "Select Semester", new { @style = "width:100%;height:27px;", required = "required" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Upload File:</label>
+            <div>
+                <input type="file" name="ListOfPaper" class="btn btn-primary" webkitdirectory required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Upload" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+}
