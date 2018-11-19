@@ -39,10 +39,11 @@ namespace Bytepad_3._0.Models
                         _subject.SubjectName = _subject.SubjectName.Replace(@".PDF", "");
                         _subject.SubjectName = _subject.SubjectName.Replace(@".pdf", "");
                     }
-                    bool paperAlreadyPresent = _subject.FindSubject(_subject);
-                    if (paperAlreadyPresent == false)
+                    int subjectId = _subject.FindSubject(_subject);
+                    
+                    if (subjectId == (-1))
                     {
-                        _subject.AddSubjects(_subject);
+                        subjectId = _subject.AddSubjects(_subject);
                     }
 
                     // Creating paper type and file url and then filling paper table with new papers. Store all files in PaperFileUpload in project too.
@@ -56,21 +57,31 @@ namespace Bytepad_3._0.Models
                         objPaper.PaperType = "Question";
                     }
 
-                    string fileUrl = $"{objPaper.SessionId.ToString()}\\{objPaper.SemesterType.ToString()}\\{item.FileName}";
+                    string fileUrl = $"{objPaper.SessionId.ToString()}/{objPaper.SemesterType.ToString()}/{item.FileName}";
                     bool findPaperByFileUrl = _paper.FindPaper(fileUrl);
-                    if(findPaperByFileUrl != true)
+                    if(findPaperByFileUrl == true)
                     {
                         rejectedFiles.Add(item.FileName);
                     }
                     else
                     {
-                        _paper.SubjectId = _subject.Id;
+                        _paper.SubjectId = subjectId;
+                        _paper.AdminId = 1;
                         _paper.ExamTypeId = objPaper.ExamTypeId;
                         _paper.SessionId = objPaper.SessionId;
                         _paper.SemesterType = objPaper.SemesterType;
                         _paper.PaperType = objPaper.PaperType;
                         _paper.FileUrl = fileUrl;
                         _paper.AddPaper(_paper);
+
+
+
+
+
+                        // something wrong here.. saare papers store nahi ho rahe..
+
+
+
 
                         string path =
                             HttpContext.Current.Server.MapPath

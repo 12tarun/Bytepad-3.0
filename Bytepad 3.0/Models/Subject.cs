@@ -34,14 +34,14 @@ namespace Bytepad_3._0.Models
             }
             return dataSubject;
         }
-        public void AddSubjects(ISubject dataSubject)
+        public int AddSubjects(ISubject dataSubject)
         {
+            tblSubject dataTblSubject = new tblSubject();
             try
             {
                 using (BytepadDBEntities db = new BytepadDBEntities())
-                {
-                    tblSubject dataTblSubject = new tblSubject();
-     //             dataTblSubject.Id = dataSubject.Id;
+                {                 
+            //      dataTblSubject.Id = dataSubject.Id;
                     dataTblSubject.SubjectName = dataSubject.SubjectName;
                     db.tblSubjects.Add(dataTblSubject);
                     db.SaveChanges();
@@ -51,10 +51,11 @@ namespace Bytepad_3._0.Models
             {
                 string error = ex.ToString();
             }
+            return dataTblSubject.Id;
         }
-        public bool FindSubject(ISubject dataSubject)
+        public int FindSubject(ISubject dataSubject)
         {
-            bool present = false;
+            int id = -1;
             try
             {
                 using (BytepadDBEntities db = new BytepadDBEntities())
@@ -62,7 +63,7 @@ namespace Bytepad_3._0.Models
                     var check = db.tblSubjects.FirstOrDefault(data => data.SubjectName.Equals(dataSubject.SubjectName));
                     if(check != null)
                     {
-                        present = true;
+                        id = check.Id;
                     }
                 }
             }
@@ -70,7 +71,7 @@ namespace Bytepad_3._0.Models
             {
                 string error = ex.ToString();
             }
-            return present;
+            return id;
         }
     }
 }

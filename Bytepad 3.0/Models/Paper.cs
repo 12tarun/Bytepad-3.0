@@ -8,7 +8,7 @@ namespace Bytepad_3._0.Models
     public class Paper : IPaper
     {
         public int Id { get; set; }
-        public int? AdminId { get; set; } // temporarily nullable 
+        public int AdminId { get; set; } // temporarily nullable 
         public int SessionId { get; set; }
         public int SubjectId { get; set; }
         public int ExamTypeId { get; set; }

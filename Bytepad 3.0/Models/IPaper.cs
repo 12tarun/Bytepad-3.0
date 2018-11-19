@@ -2,7 +2,7 @@
 {
     public interface IPaper
     {
-        int? AdminId { get; set; }
+        int AdminId { get; set; }
         int ExamTypeId { get; set; }
         string FileUrl { get; set; }
         int Id { get; set; }

@@ -38,14 +38,13 @@ namespace Bytepad_3._0.Controllers
 
         // POST: Addpapers
         [HttpPost]
-        public ActionResult Upload(Paper objPaper, List<HttpPostedFileBase> listOfPapers)
+        public ActionResult Upload(Paper objPaper, List<HttpPostedFileBase> ListOfPaper)
         {
             List<string> listOfRejectedFiles = new List<string>();
-            _fillPaper.FilledPapers(objPaper, listOfPapers, out listOfRejectedFiles);
+            _fillPaper.FilledPapers(objPaper, ListOfPaper, out listOfRejectedFiles);
             TempData["success"] = "Successfully Added!";
             TempData["failure"] = listOfRejectedFiles;
             return RedirectToAction("Upload");
-            // view mein thoda code bacha hai..
         }
     }
 }
