@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <Schema Namespace="BytepadDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="sysdiagram">
     <Key>
@@ -10,11 +11,18 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
+=======
+<Schema Namespace="DBBytepadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+>>>>>>> origin/adminLogin
   <EntityType Name="tblAdmin">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
+<<<<<<< HEAD
     <Property Name="Id" Type="Int32" Nullable="false" />
+=======
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+>>>>>>> origin/adminLogin
     <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblAdmin" FromRole="tblAdmin" ToRole="tblPaper" />
@@ -23,24 +31,41 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
+<<<<<<< HEAD
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="ExamType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblExamType1" FromRole="tblExamType" ToRole="tblPaper" />
+=======
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExamType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblExamType" FromRole="tblExamType" ToRole="tblPaper" />
+>>>>>>> origin/adminLogin
   </EntityType>
   <EntityType Name="tblPaper">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
+<<<<<<< HEAD
     <Property Name="Id" Type="Int32" Nullable="false" />
+=======
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+>>>>>>> origin/adminLogin
     <Property Name="AdminId" Type="Int32" Nullable="false" />
     <Property Name="SessionId" Type="Int32" Nullable="false" />
     <Property Name="SubjectId" Type="Int32" Nullable="false" />
     <Property Name="ExamTypeId" Type="Int32" Nullable="false" />
     <Property Name="SemesterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+<<<<<<< HEAD
     <Property Name="PaperType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="FileUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="tblAdmin" Relationship="Self.FK_tblPaper_tblAdmin" FromRole="tblPaper" ToRole="tblAdmin" />
     <NavigationProperty Name="tblExamType" Relationship="Self.FK_tblPaper_tblExamType1" FromRole="tblPaper" ToRole="tblExamType" />
+=======
+    <Property Name="PaperType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblAdmin" Relationship="Self.FK_tblPaper_tblAdmin" FromRole="tblPaper" ToRole="tblAdmin" />
+    <NavigationProperty Name="tblExamType" Relationship="Self.FK_tblPaper_tblExamType" FromRole="tblPaper" ToRole="tblExamType" />
+>>>>>>> origin/adminLogin
     <NavigationProperty Name="tblSession" Relationship="Self.FK_tblPaper_tblSession" FromRole="tblPaper" ToRole="tblSession" />
     <NavigationProperty Name="tblSubject" Relationship="Self.FK_tblPaper_tblSubject" FromRole="tblPaper" ToRole="tblSubject" />
   </EntityType>
@@ -48,7 +73,11 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
+<<<<<<< HEAD
     <Property Name="Id" Type="Int32" Nullable="false" />
+=======
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+>>>>>>> origin/adminLogin
     <Property Name="Session" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblSession" FromRole="tblSession" ToRole="tblPaper" />
   </EntityType>
@@ -56,7 +85,11 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
+<<<<<<< HEAD
     <Property Name="Id" Type="Int32" Nullable="false" />
+=======
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+>>>>>>> origin/adminLogin
     <Property Name="SubjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblSubject" FromRole="tblSubject" ToRole="tblPaper" />
   </EntityType>
@@ -72,7 +105,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+<<<<<<< HEAD
   <Association Name="FK_tblPaper_tblExamType1">
+=======
+  <Association Name="FK_tblPaper_tblExamType">
+>>>>>>> origin/adminLogin
     <End Role="tblExamType" Type="Self.tblExamType" Multiplicity="1" />
     <End Role="tblPaper" Type="Self.tblPaper" Multiplicity="*" />
     <ReferentialConstraint>
@@ -109,7 +146,10 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="BytepadDBEntities" annotation:LazyLoadingEnabled="true">
+<<<<<<< HEAD
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+=======
+>>>>>>> origin/adminLogin
     <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
     <EntitySet Name="tblExamTypes" EntityType="Self.tblExamType" />
     <EntitySet Name="tblPapers" EntityType="Self.tblPaper" />
@@ -119,7 +159,11 @@
       <End Role="tblAdmin" EntitySet="tblAdmins" />
       <End Role="tblPaper" EntitySet="tblPapers" />
     </AssociationSet>
+<<<<<<< HEAD
     <AssociationSet Name="FK_tblPaper_tblExamType1" Association="Self.FK_tblPaper_tblExamType1">
+=======
+    <AssociationSet Name="FK_tblPaper_tblExamType" Association="Self.FK_tblPaper_tblExamType">
+>>>>>>> origin/adminLogin
       <End Role="tblExamType" EntitySet="tblExamTypes" />
       <End Role="tblPaper" EntitySet="tblPapers" />
     </AssociationSet>
@@ -131,6 +175,7 @@
       <End Role="tblSubject" EntitySet="tblSubjects" />
       <End Role="tblPaper" EntitySet="tblPapers" />
     </AssociationSet>
+<<<<<<< HEAD
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -173,4 +218,7 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+=======
+  </EntityContainer>
+>>>>>>> origin/adminLogin
 </Schema>

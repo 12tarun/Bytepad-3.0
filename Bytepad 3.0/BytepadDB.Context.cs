@@ -27,7 +27,6 @@ namespace Bytepad_3._0
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tblAdmin> tblAdmins { get; set; }
         public virtual DbSet<tblExamType> tblExamTypes { get; set; }
         public virtual DbSet<tblPaper> tblPapers { get; set; }

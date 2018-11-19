@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+<<<<<<< HEAD
   <EntityContainerMapping StorageEntityContainer="BytepadDBModelStoreContainer" CdmEntityContainer="BytepadDBEntities">
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="BytepadDBModel.sysdiagram">
@@ -14,6 +15,11 @@
     </EntitySetMapping>
     <EntitySetMapping Name="tblAdmins">
       <EntityTypeMapping TypeName="BytepadDBModel.tblAdmin">
+=======
+  <EntityContainerMapping StorageEntityContainer="DBBytepadModelStoreContainer" CdmEntityContainer="BytepadDBEntities">
+    <EntitySetMapping Name="tblAdmins">
+      <EntityTypeMapping TypeName="DBBytepadModel.tblAdmin">
+>>>>>>> origin/adminLogin
         <MappingFragment StoreEntitySet="tblAdmin">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -22,7 +28,11 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblExamTypes">
+<<<<<<< HEAD
       <EntityTypeMapping TypeName="BytepadDBModel.tblExamType">
+=======
+      <EntityTypeMapping TypeName="DBBytepadModel.tblExamType">
+>>>>>>> origin/adminLogin
         <MappingFragment StoreEntitySet="tblExamType">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ExamType" ColumnName="ExamType" />
@@ -30,7 +40,11 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblPapers">
+<<<<<<< HEAD
       <EntityTypeMapping TypeName="BytepadDBModel.tblPaper">
+=======
+      <EntityTypeMapping TypeName="DBBytepadModel.tblPaper">
+>>>>>>> origin/adminLogin
         <MappingFragment StoreEntitySet="tblPaper">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="AdminId" ColumnName="AdminId" />
@@ -44,7 +58,11 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblSessions">
+<<<<<<< HEAD
       <EntityTypeMapping TypeName="BytepadDBModel.tblSession">
+=======
+      <EntityTypeMapping TypeName="DBBytepadModel.tblSession">
+>>>>>>> origin/adminLogin
         <MappingFragment StoreEntitySet="tblSession">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Session" ColumnName="Session" />
@@ -52,13 +70,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblSubjects">
+<<<<<<< HEAD
       <EntityTypeMapping TypeName="BytepadDBModel.tblSubject">
+=======
+      <EntityTypeMapping TypeName="DBBytepadModel.tblSubject">
+>>>>>>> origin/adminLogin
         <MappingFragment StoreEntitySet="tblSubject">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+<<<<<<< HEAD
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BytepadDBModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BytepadDBModel.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BytepadDBModel.Store.sp_dropdiagram" />
@@ -83,5 +106,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BytepadDBModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BytepadDBModel.Store.sp_upgraddiagrams" />
+=======
+>>>>>>> origin/adminLogin
   </EntityContainerMapping>
 </Mapping>

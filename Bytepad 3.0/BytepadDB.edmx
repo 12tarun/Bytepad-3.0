@@ -4,6 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
+<<<<<<< HEAD
     <Schema Namespace="BytepadDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
@@ -15,6 +16,9 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+=======
+      <Schema Namespace="DBBytepadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+>>>>>>> origin/adminLogin
         <EntityType Name="tblAdmin">
           <Key>
             <PropertyRef Name="Id" />
@@ -105,6 +109,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -138,6 +143,9 @@
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="BytepadDBModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+=======
+        <EntityContainer Name="DBBytepadModelStoreContainer">
+>>>>>>> origin/adminLogin
           <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblExamType" EntityType="Self.tblExamType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPaper" EntityType="Self.tblPaper" Schema="dbo" store:Type="Tables" />
@@ -163,22 +171,12 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BytepadDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
+      <Schema Namespace="DBBytepadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tblAdmin">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblAdmin" FromRole="tblAdmin" ToRole="tblPaper" />
@@ -187,15 +185,15 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ExamType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblExamType1" FromRole="tblExamType" ToRole="tblPaper" />
+          <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblExamType" FromRole="tblExamType" ToRole="tblPaper" />
         </EntityType>
         <EntityType Name="tblPaper">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AdminId" Type="Int32" Nullable="false" />
           <Property Name="SessionId" Type="Int32" Nullable="false" />
           <Property Name="SubjectId" Type="Int32" Nullable="false" />
@@ -204,7 +202,7 @@
           <Property Name="PaperType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FileUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblAdmin" Relationship="Self.FK_tblPaper_tblAdmin" FromRole="tblPaper" ToRole="tblAdmin" />
-          <NavigationProperty Name="tblExamType" Relationship="Self.FK_tblPaper_tblExamType1" FromRole="tblPaper" ToRole="tblExamType" />
+          <NavigationProperty Name="tblExamType" Relationship="Self.FK_tblPaper_tblExamType" FromRole="tblPaper" ToRole="tblExamType" />
           <NavigationProperty Name="tblSession" Relationship="Self.FK_tblPaper_tblSession" FromRole="tblPaper" ToRole="tblSession" />
           <NavigationProperty Name="tblSubject" Relationship="Self.FK_tblPaper_tblSubject" FromRole="tblPaper" ToRole="tblSubject" />
         </EntityType>
@@ -212,7 +210,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Session" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblSession" FromRole="tblSession" ToRole="tblPaper" />
         </EntityType>
@@ -220,7 +218,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SubjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblSubject" FromRole="tblSubject" ToRole="tblPaper" />
         </EntityType>
@@ -236,7 +234,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tblPaper_tblExamType1">
+        <Association Name="FK_tblPaper_tblExamType">
           <End Role="tblExamType" Type="Self.tblExamType" Multiplicity="1" />
           <End Role="tblPaper" Type="Self.tblPaper" Multiplicity="*" />
           <ReferentialConstraint>
@@ -273,7 +271,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BytepadDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
           <EntitySet Name="tblExamTypes" EntityType="Self.tblExamType" />
           <EntitySet Name="tblPapers" EntityType="Self.tblPaper" />
@@ -283,7 +280,7 @@
             <End Role="tblAdmin" EntitySet="tblAdmins" />
             <End Role="tblPaper" EntitySet="tblPapers" />
           </AssociationSet>
-          <AssociationSet Name="FK_tblPaper_tblExamType1" Association="Self.FK_tblPaper_tblExamType1">
+          <AssociationSet Name="FK_tblPaper_tblExamType" Association="Self.FK_tblPaper_tblExamType">
             <End Role="tblExamType" EntitySet="tblExamTypes" />
             <End Role="tblPaper" EntitySet="tblPapers" />
           </AssociationSet>
@@ -342,20 +339,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BytepadDBModelStoreContainer" CdmEntityContainer="BytepadDBEntities">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="BytepadDBModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="DBBytepadModelStoreContainer" CdmEntityContainer="BytepadDBEntities">
           <EntitySetMapping Name="tblAdmins">
-            <EntityTypeMapping TypeName="BytepadDBModel.tblAdmin">
+            <EntityTypeMapping TypeName="DBBytepadModel.tblAdmin">
               <MappingFragment StoreEntitySet="tblAdmin">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -364,7 +350,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblExamTypes">
-            <EntityTypeMapping TypeName="BytepadDBModel.tblExamType">
+            <EntityTypeMapping TypeName="DBBytepadModel.tblExamType">
               <MappingFragment StoreEntitySet="tblExamType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ExamType" ColumnName="ExamType" />
@@ -372,7 +358,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblPapers">
-            <EntityTypeMapping TypeName="BytepadDBModel.tblPaper">
+            <EntityTypeMapping TypeName="DBBytepadModel.tblPaper">
               <MappingFragment StoreEntitySet="tblPaper">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AdminId" ColumnName="AdminId" />
@@ -386,7 +372,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblSessions">
-            <EntityTypeMapping TypeName="BytepadDBModel.tblSession">
+            <EntityTypeMapping TypeName="DBBytepadModel.tblSession">
               <MappingFragment StoreEntitySet="tblSession">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Session" ColumnName="Session" />
@@ -394,7 +380,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblSubjects">
-            <EntityTypeMapping TypeName="BytepadDBModel.tblSubject">
+            <EntityTypeMapping TypeName="DBBytepadModel.tblSubject">
               <MappingFragment StoreEntitySet="tblSubject">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
