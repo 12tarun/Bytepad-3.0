@@ -14,7 +14,35 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+@{
+    bool listrejected = false;
+    if (ViewBag.rejectedFile != null)
+    {
+        if (ViewBag.rejectedFile.Count != 0)
+        {
+            listrejected = true;
+        }
+    }
+}
 
+@if (listrejected)
+{
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#myModal').modal('show');
+        });
+    </script>
+}
+else
+{
+    <script type="text/javascript">
+        var message = '@message';
+        if (message)
+        {
+            alert(message);
+        }
+    </script>
+}
 
 @using (Html.BeginForm("Upload", "Addpapers", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

@@ -35,8 +35,8 @@
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="ExamTypeId" Type="int" Nullable="false" />
     <Property Name="SemesterType" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PaperType" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="FileUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PaperType" Type="nvarchar(max)" />
+    <Property Name="FileUrl" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="tblSession">
     <Key>
