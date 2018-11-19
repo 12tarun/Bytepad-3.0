@@ -4,8 +4,6 @@
     {
         string Password { get; set; }
         string Username { get; set; }
-
         bool isValidCredentials(Login data);
-     
     }
 }

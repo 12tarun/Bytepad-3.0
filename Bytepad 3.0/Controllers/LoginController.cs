@@ -20,7 +20,7 @@ namespace Bytepad_3._0.Controllers
         {
             if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
             {
-                return RedirectToAction("Index", "Addpapers");
+                return RedirectToAction("Upload", "Addpapers");
             }
             else
             {
@@ -39,7 +39,7 @@ namespace Bytepad_3._0.Controllers
                 cookie.Expires = DateTime.Now.AddMinutes(200);
                 cookie.HttpOnly = true;
                 Response.Cookies.Add(cookie);
-                return RedirectToAction("Addpapers", "Index");
+                return RedirectToAction("Upload", "Addpapers");
             }
             else
             {

@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <Schema Namespace="BytepadDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="sysdiagrams">
     <Key>
@@ -11,9 +10,6 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-=======
-<Schema Namespace="DBBytepadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
->>>>>>> origin/adminLogin
   <EntityType Name="tblAdmin">
     <Key>
       <PropertyRef Name="Id" />
@@ -39,13 +35,8 @@
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="ExamTypeId" Type="int" Nullable="false" />
     <Property Name="SemesterType" Type="nvarchar(max)" Nullable="false" />
-<<<<<<< HEAD
     <Property Name="PaperType" Type="nvarchar(max)" />
     <Property Name="FileUrl" Type="nvarchar(max)" />
-=======
-    <Property Name="PaperType" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="FileUrl" Type="nvarchar(max)" Nullable="false" />
->>>>>>> origin/adminLogin
   </EntityType>
   <EntityType Name="tblSession">
     <Key>
@@ -109,7 +100,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-<<<<<<< HEAD
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -143,9 +133,8 @@
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="BytepadDBModelStoreContainer">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-=======
+  </EntityContainer>
   <EntityContainer Name="DBBytepadModelStoreContainer">
->>>>>>> origin/adminLogin
     <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblExamType" EntityType="Self.tblExamType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblPaper" EntityType="Self.tblPaper" Schema="dbo" store:Type="Tables" />

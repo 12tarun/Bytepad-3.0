@@ -152,13 +152,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-<<<<<<< HEAD
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-=======
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -172,9 +165,14 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
->>>>>>> origin/adminLogin
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -196,7 +194,6 @@
       <DependentUpon>BytepadDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AddpapersController.cs" />
-<<<<<<< HEAD
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,18 +216,9 @@
     <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>BytepadDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>BytepadDB.tt</DependentUpon>
-    </Compile>
-=======
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Models\ILogin.cs" />
     <Compile Include="Models\Login.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
->>>>>>> origin/adminLogin
     <Compile Include="tblAdmin.cs">
       <DependentUpon>BytepadDB.tt</DependentUpon>
     </Compile>
@@ -262,28 +250,13 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Addpapers\Upload.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-=======
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Login\Index.cshtml" />
->>>>>>> origin/adminLogin
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-<<<<<<< HEAD
     <Folder Include="PaperFileUpload\" />
-=======
-    <Folder Include="Views\Addpapers\" />
-    <Folder Include="Views\admin\" />
->>>>>>> origin/adminLogin
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
