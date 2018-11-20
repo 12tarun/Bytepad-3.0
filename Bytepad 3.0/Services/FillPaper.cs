@@ -50,11 +50,11 @@ namespace Bytepad_3._0.Models
 
                     if(item.FileName.Contains("Solution") || item.FileName.Contains("solution") || item.FileName.Contains("SOLUTION"))
                     {
-                        objPaper.PaperType = "Solution";
+                        objPaper.PaperType = "Sol";
                     }
                     else
                     {
-                        objPaper.PaperType = "Question";
+                        objPaper.PaperType = "Quest";
                     }
 
                     string fileUrl = $"{objPaper.SessionId.ToString()}/{objPaper.SemesterType.ToString()}/{item.FileName}";
@@ -80,21 +80,24 @@ namespace Bytepad_3._0.Models
 
                         // something wrong here.. saare papers store nahi ho rahe..
 
-
+                        string s = "~/Papers/" + _paper.GetExamType(_paper.ExamTypeId) + "/" + _paper.GetSession(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0];
+                        int l = s.Length;
 
 
                         string path =
                             HttpContext.Current.Server.MapPath
-                            ("~/PaperFileUpload/" + _paper.GetExamTypeOfPaper(_paper.ExamTypeId) + "/" + _paper.GetSessionOfPaper(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0]);
+                            ("~/Papers/" + _paper.GetExamType(_paper.ExamTypeId) + "/" + _paper.GetSession(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0]);
 
-                        if(!Directory.Exists(path))
+
+
+                        if (!Directory.Exists(path))
                         {
                             Directory.CreateDirectory(path);
                         }
 
                         string finalPath =
                             HttpContext.Current.Server.MapPath
-                            ("~/PaperFileUpload/" + _paper.GetExamTypeOfPaper(_paper.ExamTypeId) + "/" + _paper.GetSessionOfPaper(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0] + "/" + inputFileNames[1]);
+                            ("~/Papers/" + _paper.GetExamType(_paper.ExamTypeId) + "/" + _paper.GetSession(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0] + "/" + inputFileNames[1]);
 
                         item.SaveAs(finalPath);
                     }

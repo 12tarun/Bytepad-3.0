@@ -13,8 +13,8 @@ namespace Bytepad_3._0.Models
         public List<Semester> GetAllSemesters()
         {
             List<Semester> dataSemester = new List<Semester>();
-            dataSemester.Add(new Semester { Id = 1, SemesterType = "Even Semester" });
-            dataSemester.Add(new Semester { Id = 2, SemesterType = "Odd Semester" });
+            dataSemester.Add(new Semester { Id = 1, SemesterType = "Even" });
+            dataSemester.Add(new Semester { Id = 2, SemesterType = "Odd" });
             return dataSemester;
         }
     }

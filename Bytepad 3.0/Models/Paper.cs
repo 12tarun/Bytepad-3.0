@@ -60,7 +60,7 @@ namespace Bytepad_3._0.Models
                 string error = ex.ToString();
             }
         }
-        public string GetExamTypeOfPaper(int id)
+        public string GetExamType(int id)
         {
             string foundExamType = "";
             try
@@ -77,7 +77,7 @@ namespace Bytepad_3._0.Models
             }
             return foundExamType;
         }
-        public string GetSessionOfPaper(int id)
+        public string GetSession(int id)
         {
             string foundSession = "";
             try
