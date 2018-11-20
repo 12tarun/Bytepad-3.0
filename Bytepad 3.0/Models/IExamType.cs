@@ -6,7 +6,7 @@ namespace Bytepad_3._0.Models
     {
         string Exam { get; set; }
         int Id { get; set; }
-
         List<ExamType> GetAllExamTypes();
+        string GetExamType(int id);
     }
 }

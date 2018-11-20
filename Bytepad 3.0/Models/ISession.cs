@@ -6,7 +6,7 @@ namespace Bytepad_3._0.Models
     {
         string EachSession { get; set; }
         int Id { get; set; }
-
         List<Session> GetAllSessions();
+        string GetSession(int id);
     }
 }

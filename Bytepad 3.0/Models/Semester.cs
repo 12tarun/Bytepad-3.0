@@ -9,7 +9,6 @@ namespace Bytepad_3._0.Models
     {
         public int Id { get; set; }
         public string SemesterType { get; set; }
-
         public List<Semester> GetAllSemesters()
         {
             List<Semester> dataSemester = new List<Semester>();

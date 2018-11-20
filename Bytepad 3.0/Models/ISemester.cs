@@ -6,7 +6,6 @@ namespace Bytepad_3._0.Models
     {
         int Id { get; set; }
         string SemesterType { get; set; }
-
         List<Semester> GetAllSemesters();
     }
 }

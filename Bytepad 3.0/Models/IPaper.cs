@@ -12,7 +12,5 @@
         int SubjectId { get; set; }
         void AddPaper(IPaper dataPaper);
         bool FindPaper(string dataPaper);
-        string GetExamType(int id);
-        string GetSession(int id);
     }
 }

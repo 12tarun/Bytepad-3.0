@@ -8,7 +8,7 @@ namespace Bytepad_3._0.Models
     public class Paper : IPaper
     {
         public int Id { get; set; }
-        public int AdminId { get; set; } // temporarily nullable 
+        public int AdminId { get; set; }
         public int SessionId { get; set; }
         public int SubjectId { get; set; }
         public int ExamTypeId { get; set; }
@@ -59,40 +59,6 @@ namespace Bytepad_3._0.Models
             {
                 string error = ex.ToString();
             }
-        }
-        public string GetExamType(int id)
-        {
-            string foundExamType = "";
-            try
-            {
-                using (BytepadDBEntities db = new BytepadDBEntities())
-                {
-                    var found = db.tblPapers.FirstOrDefault(data => data.ExamTypeId == id);
-                    foundExamType = found.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                string error = ex.ToString();
-            }
-            return foundExamType;
-        }
-        public string GetSession(int id)
-        {
-            string foundSession = "";
-            try
-            {
-                using (BytepadDBEntities db = new BytepadDBEntities())
-                {
-                    var found = db.tblPapers.FirstOrDefault(data => data.SessionId == id);
-                    foundSession = found.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                string error = ex.ToString();
-            }
-            return foundSession;
         }
     }
 }

@@ -34,5 +34,22 @@ namespace Bytepad_3._0.Models
             }
             return dataExamType;
         }
+        public string GetExamType(int id)
+        {
+            string foundExamType = "";
+            try
+            {
+                using (BytepadDBEntities db = new BytepadDBEntities())
+                {
+                    var found = db.tblExamTypes.FirstOrDefault(data => data.Id == id);
+                    foundExamType = found.ExamType.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
+            return foundExamType;
+        }
     }
 }

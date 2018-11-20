@@ -34,5 +34,22 @@ namespace Bytepad_3._0.Models
             }
             return dataSession;
         }
+        public string GetSession(int id)
+        {
+            string foundSession = "";
+            try
+            {
+                using (BytepadDBEntities db = new BytepadDBEntities())
+                {
+                    var found = db.tblSessions.FirstOrDefault(data => data.Id == id);
+                    foundSession = found.Session.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
+            return foundSession;
+        }
     }
 }

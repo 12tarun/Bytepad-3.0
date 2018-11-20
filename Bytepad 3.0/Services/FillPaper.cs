@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
+using System.Configuration;
 
 namespace Bytepad_3._0.Models
 {
@@ -10,11 +11,17 @@ namespace Bytepad_3._0.Models
     {
         private ISubject _subject = null;
         private IPaper _paper = null;
+        private IExamType _examType = null;
+        private ISession _session = null;
+        private ISemester _semester = null;
 
-        public FillPaper(ISubject subject, IPaper paper)
+        public FillPaper(ISubject subject, IPaper paper, IExamType  examType, ISession session, ISemester semester)
         {
             _subject = subject;
             _paper = paper;
+            _examType = examType;
+            _session = session;
+            _semester = semester;
         }
 
         public void FilledPapers(Paper objPaper, List<HttpPostedFileBase> ListOfPapers, out List<string> listOfRejectedFiles)
@@ -46,18 +53,25 @@ namespace Bytepad_3._0.Models
                         subjectId = _subject.AddSubjects(_subject);
                     }
 
-                    // Creating paper type and file url and then filling paper table with new papers. Store all files in PaperFileUpload in project too.
+                    // Creating paper type and file url and then filling paper table with new papers. Store all files in Papers folder in project too.
 
                     if(item.FileName.Contains("Solution") || item.FileName.Contains("solution") || item.FileName.Contains("SOLUTION"))
                     {
-                        objPaper.PaperType = "Sol";
+                        objPaper.PaperType = "Solution";
                     }
                     else
                     {
-                        objPaper.PaperType = "Quest";
+                        objPaper.PaperType = "Question";
                     }
 
-                    string fileUrl = $"{objPaper.SessionId.ToString()}/{objPaper.SemesterType.ToString()}/{item.FileName}";
+                    string a = _examType.GetExamType(objPaper.ExamTypeId);
+                    string b = _session.GetSession(objPaper.SessionId);
+                    string c;
+                    if (objPaper.SemesterType.Equals("1")) c = "Even";
+                    else c = "Odd";
+
+                    string fileUrl = $"{a}/{b}/{c}/{item.FileName}";
+
                     bool findPaperByFileUrl = _paper.FindPaper(fileUrl);
                     if(findPaperByFileUrl == true)
                     {
@@ -74,31 +88,12 @@ namespace Bytepad_3._0.Models
                         _paper.FileUrl = fileUrl;
                         _paper.AddPaper(_paper);
 
-
-
-
-
-                        // something wrong here.. saare papers store nahi ho rahe..
-
-                        string s = "~/Papers/" + _paper.GetExamType(_paper.ExamTypeId) + "/" + _paper.GetSession(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0];
-                        int l = s.Length;
-
-
-                        string path =
-                            HttpContext.Current.Server.MapPath
-                            ("~/Papers/" + _paper.GetExamType(_paper.ExamTypeId) + "/" + _paper.GetSession(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0]);
-
-
-
+                        string path = HttpContext.Current.Server.MapPath("~/Papers/" + a + "/" + b + "/" + c + "/" + inputFileNames[0]);
                         if (!Directory.Exists(path))
                         {
                             Directory.CreateDirectory(path);
                         }
-
-                        string finalPath =
-                            HttpContext.Current.Server.MapPath
-                            ("~/Papers/" + _paper.GetExamType(_paper.ExamTypeId) + "/" + _paper.GetSession(_paper.SessionId) + "/" + _paper.SemesterType + "/" + inputFileNames[0] + "/" + inputFileNames[1]);
-
+                        string finalPath = HttpContext.Current.Server.MapPath("~/Papers/" + a + "/" + b + "/" + c + "/" + inputFileNames[0] + "/" + inputFileNames[1]);
                         item.SaveAs(finalPath);
                     }
                 }
