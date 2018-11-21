@@ -1,0 +1,33 @@
+﻿@model Bytepad_3._0.PaperViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>Paper Id</th>
+        <th>Subject Details</th>
+        <th> Exam Type</th>
+        <th> Semester</th>
+        <th>Session</th>
+        <th>Paper Type</th>
+        <th> View</th>
+        <th>Remove</th>
+    </tr>
+    @foreach(var paper in ViewBag.listOfPapers)
+    {
+        <tr>
+            <td>@paper.PaperID</td>
+            <td>@paper.SubjectDetails</td>
+            <td>@paper.ExamType</td>
+            <td>@paper.Semester</td>
+            <td>@paper.Session</td>
+            <td>@paper.PaperType</td>
+            <td>View</td>
+            <td>Remove</td>
+        </tr>
+    }
+</table>
+

@@ -5,13 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Bytepad_3._0.Services;
 
 namespace Bytepad_3._0.Controllers
 {
     public class LoginController : Controller
     {
-        private ILogin _model = null;
-        public LoginController(ILogin Model)
+        private ICheckCredentials _model = null;
+        public LoginController(ICheckCredentials Model)
         {
             _model = Model;
         }
@@ -31,7 +32,7 @@ namespace Bytepad_3._0.Controllers
         public ActionResult Index(Login user)
         {
             ViewBag.ErrorMessage = null;
-            if (_model.isValidCredentials(user))
+            if (_model.validateUser(user))
             {
                 var ticket = new FormsAuthenticationTicket("admin", true, 200);
                 var encrypted = FormsAuthentication.Encrypt(ticket);
@@ -46,6 +47,12 @@ namespace Bytepad_3._0.Controllers
                 ViewBag.ErrorMessage = "Wrong Credentials";
                 return View();
             }
+        }
+        [HttpPost]
+        public ActionResult Index()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

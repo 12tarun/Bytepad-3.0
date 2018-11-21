@@ -8,10 +8,17 @@ namespace Bytepad_3._0.Controllers
 {
     public class ViewpapersController : Controller
     {
+        IPaperViewModel _paperViewModel = null;
+        public ViewpapersController(IPaperViewModel paperViewModel)
+        {
+            _paperViewModel = paperViewModel;
+        }
         // GET: Viewpapers
         public ActionResult Index()
         {
+            ViewBag.listOfPapers = _paperViewModel.getAllPapers();
             return View();
         }
+
     }
 }
