@@ -10,10 +10,10 @@ namespace Bytepad_3._0.Controllers
 {
     public class LoginController : Controller
     {
-        private ILogin model = null;
+        private ILogin _model = null;
         public LoginController(ILogin Model)
         {
-            model = Model;
+            _model = Model;
         }
         [HttpGet]
         public ActionResult Index()
@@ -31,7 +31,7 @@ namespace Bytepad_3._0.Controllers
         public ActionResult Index(Login user)
         {
             ViewBag.ErrorMessage = null;
-            if (model.isValidCredentials(user))
+            if (_model.isValidCredentials(user))
             {
                 var ticket = new FormsAuthenticationTicket("admin", true, 200);
                 var encrypted = FormsAuthentication.Encrypt(ticket);

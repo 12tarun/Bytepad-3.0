@@ -137,16 +137,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BytepadDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BytepadDB.edmx</DependentUpon>
-      <LastGenOutput>BytepadDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="BytepadDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BytepadDB.edmx</DependentUpon>
-      <LastGenOutput>BytepadDB.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -178,22 +168,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BytepadDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BytepadDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BytepadDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BytepadDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BytepadDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BytepadDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AddpapersController.cs" />
+    <Compile Include="Controllers\ViewpapersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,40 +186,12 @@
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IFillPaper.cs" />
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>BytepadDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>BytepadDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Models\ILogin.cs" />
     <Compile Include="Models\Login.cs" />
-    <Compile Include="tblAdmin.cs">
-      <DependentUpon>BytepadDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblExamType.cs">
-      <DependentUpon>BytepadDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblPaper.cs">
-      <DependentUpon>BytepadDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblSession.cs">
-      <DependentUpon>BytepadDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblSubject.cs">
-      <DependentUpon>BytepadDB.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="BytepadDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BytepadDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="BytepadDB.edmx.diagram">
-      <DependentUpon>BytepadDB.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -257,6 +205,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Papers\" />
+    <Folder Include="Views\Viewpapers\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
