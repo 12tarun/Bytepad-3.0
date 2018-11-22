@@ -45,11 +45,11 @@ namespace Bytepad_3._0
         {
             if (id == "1")
             {
-                return "Even Semester";
+                return "Even";
             }
             else//id="2"
             {
-                return "Odd Semester";
+                return "Odd";
             }
 
         }

@@ -14,6 +14,7 @@ namespace Bytepad_3._0.Controllers
             _paperViewModel = paperViewModel;
         }
         // GET: Viewpapers
+        [Authorize]
         public ActionResult Index()
         {
             ViewBag.listOfPapers = _paperViewModel.getAllPapers();

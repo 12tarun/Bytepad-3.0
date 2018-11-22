@@ -49,7 +49,7 @@ namespace Bytepad_3._0.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Index()
+        public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Login");
