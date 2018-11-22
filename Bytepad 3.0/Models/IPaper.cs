@@ -1,4 +1,6 @@
-﻿namespace Bytepad_3._0.Models
+﻿using System.Collections.Generic;
+
+namespace Bytepad_3._0.Models
 {
     public interface IPaper
     {
@@ -12,5 +14,6 @@
         int SubjectId { get; set; }
         void AddPaper(IPaper dataPaper);
         bool FindPaper(string dataPaper);
+        List<Paper> FindPapersBySubjectId(int id);
     }
 }

@@ -60,5 +60,37 @@ namespace Bytepad_3._0.Models
                 string error = ex.ToString();
             }
         }
+        public List<Paper> FindPapersBySubjectId(int id)
+        {
+            List<Paper> PapersOfSameSubject = new List<Paper>();
+            try
+            {
+                using (BytepadDBEntities db = new BytepadDBEntities())
+                {
+                    foreach(var paper in db.tblPapers.ToList())
+                    {
+                        if(paper.SubjectId == id)
+                        {
+                            PapersOfSameSubject.Add(new Paper
+                            {
+                                Id = paper.Id,
+                                AdminId = paper.AdminId,
+                                SessionId = paper.SessionId,
+                                SubjectId = paper.SubjectId,
+                                ExamTypeId = paper.ExamTypeId,
+                                SemesterType = paper.SemesterType,
+                                PaperType = paper.PaperType,
+                                FileUrl = paper.FileUrl
+                            });
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                string error = ex.ToString();
+            }
+            return PapersOfSameSubject;
+        }
     }
 }
