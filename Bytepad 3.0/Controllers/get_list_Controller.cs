@@ -17,10 +17,12 @@ namespace Bytepad_3._0.Controllers
             _paper = paper;
         }
 
+        // When in search box a subject is searched and selected, this controller brings all the subjects corresponding to the id of selected subject.
         [HttpGet]
-        public IHttpActionResult GetPapers(int id)
+        [Route("api/get_list_")]
+        public IHttpActionResult GetPapers(int subject_id)
         {
-            List<Paper> papersOfSameSubject = _paper.FindPapersBySubjectId(id); 
+            List<Paper> papersOfSameSubject = _paper.FindPapersBySubjectId(subject_id); 
             return Ok(papersOfSameSubject);
         }
     }
