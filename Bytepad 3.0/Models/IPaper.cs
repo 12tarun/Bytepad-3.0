@@ -12,5 +12,6 @@
         int SubjectId { get; set; }
         void AddPaper(IPaper dataPaper);
         bool FindPaper(string dataPaper);
+        void deletePaperByID(int id);
     }
 }

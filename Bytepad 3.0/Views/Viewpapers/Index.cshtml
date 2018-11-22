@@ -4,30 +4,33 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using (Html.BeginForm("ViewAllPaper", "view_papaer_", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
 
-<table class="table">
-    <tr>
-        <th>Paper Id</th>
-        <th>Subject Details</th>
-        <th> Exam Type</th>
-        <th> Semester</th>
-        <th>Session</th>
-        <th>Paper Type</th>
-        <th> View</th>
-        <th>Remove</th>
-    </tr>
-    @foreach(var paper in ViewBag.listOfPapers)
-    {
-        <tr>
-            <td>@paper.PaperID</td>
-            <td>@paper.SubjectDetails</td>
-            <td>@paper.ExamType</td>
-            <td>@paper.Semester</td>
-            <td>@paper.Session</td>
-            <td>@paper.PaperType</td>
-            <td>View</td>
-            <td>Remove</td>
-        </tr>
-    }
-</table>
+        <table class="table">
+            <tr>
+                <th>Paper Id</th>
+                <th>Subject Details</th>
+                <th> Exam Type</th>
+                <th> Semester</th>
+                <th>Session</th>
+                <th>Paper Type</th>
+                <th> View</th>
+                <th>Remove</th>
+            </tr>
+            @foreach (var paper in ViewBag.listOfPapers)
+            {
+                <tr>
+                    <td>@paper.PaperID</td>
+                    <td>@paper.SubjectDetails</td>
+                    <td>@paper.ExamType</td>
+                    <td>@paper.Semester</td>
+                    <td>@paper.Session</td>
+                    <td>@paper.PaperType</td>
+                    <td>@Html.ActionLink("View","viewPaper",new { fileUrl =paper.FileUrl})</td>
+                    <td>@Html.ActionLink("Remove","removePaper",new { id =paper.PaperID })</td>
+                </tr>
+            }
+        </table>
+}
 

@@ -22,7 +22,6 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Add Papers","Index","Addpapers")</li>
                     <li> @Html.ActionLink("View All Papers","Index","Viewpapers")</li>
-                    <li>@Html.ActionLink("Logout","Logout","Login")</li>
                     <li>
                         @using (Html.BeginForm("Logout", "Login", FormMethod.Post, new { id = "logoutForm" }))
                         {

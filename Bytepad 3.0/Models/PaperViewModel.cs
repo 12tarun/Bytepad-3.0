@@ -14,7 +14,7 @@ namespace Bytepad_3._0
         public string Semester { get; set; }
         public string Session { get; set; }
         public string PaperType { get; set; }
-
+        public string FileUrl { get; set; }
         IExamType _examType = null;
         ISession _session = null;
         public PaperViewModel(IExamType Examtype, ISession session)
@@ -36,6 +36,7 @@ namespace Bytepad_3._0
                     tempPaper.Semester = getSemesterTypeById(paper.SemesterType);
                     tempPaper.ExamType = _examType.GetExamType(paper.ExamTypeId);
                     tempPaper.Session = _session.GetSession(paper.SessionId);
+                    tempPaper.FileUrl = paper.FileUrl;
                     showPapers.Add(tempPaper);
                 }
             }

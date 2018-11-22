@@ -10,7 +10,7 @@ namespace Bytepad_3._0
         string Semester { get; set; }
         string Session { get; set; }
         string SubjectDetails { get; set; }
-
+        string FileUrl{ get; set; }
         List<PaperViewModel> getAllPapers();
     }
 }
