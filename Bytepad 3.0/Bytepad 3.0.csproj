@@ -201,6 +201,7 @@
     </Compile>
     <Compile Include="Controllers\AddpapersController.cs" />
     <Compile Include="Controllers\get_list_Controller.cs" />
+    <Compile Include="Controllers\subject_detailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
