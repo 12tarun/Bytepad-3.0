@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using Bytepad_3._0.dbClashFiles;
+
 namespace Bytepad_3._0.Models
 {
     public class Login : ILogin

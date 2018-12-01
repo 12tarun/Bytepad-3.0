@@ -1,8 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBBytepadModelStoreContainer" CdmEntityContainer="BytepadDBEntities">
+  <EntityContainerMapping StorageEntityContainer="BytepadDBModelStoreContainer" CdmEntityContainer="BytepadDBEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BytepadDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tblAdmins">
-      <EntityTypeMapping TypeName="DBBytepadModel.tblAdmin">
+      <EntityTypeMapping TypeName="BytepadDBModel.tblAdmin">
         <MappingFragment StoreEntitySet="tblAdmin">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -11,7 +22,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblExamTypes">
-      <EntityTypeMapping TypeName="DBBytepadModel.tblExamType">
+      <EntityTypeMapping TypeName="BytepadDBModel.tblExamType">
         <MappingFragment StoreEntitySet="tblExamType">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ExamType" ColumnName="ExamType" />
@@ -19,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblPapers">
-      <EntityTypeMapping TypeName="DBBytepadModel.tblPaper">
+      <EntityTypeMapping TypeName="BytepadDBModel.tblPaper">
         <MappingFragment StoreEntitySet="tblPaper">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="AdminId" ColumnName="AdminId" />
@@ -33,7 +44,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblSessions">
-      <EntityTypeMapping TypeName="DBBytepadModel.tblSession">
+      <EntityTypeMapping TypeName="BytepadDBModel.tblSession">
         <MappingFragment StoreEntitySet="tblSession">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Session" ColumnName="Session" />
@@ -41,36 +52,12 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblSubjects">
-      <EntityTypeMapping TypeName="DBBytepadModel.tblSubject">
+      <EntityTypeMapping TypeName="BytepadDBModel.tblSubject">
         <MappingFragment StoreEntitySet="tblSubject">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BytepadDBModel.Store.sp_alterdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BytepadDBModel.Store.sp_creatediagram" />
-    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BytepadDBModel.Store.sp_dropdiagram" />
-    <!--       <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BytepadDBModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="BytepadDBModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BytepadDBModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="BytepadDBModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping> -->
-    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BytepadDBModel.Store.sp_renamediagram" />
-    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BytepadDBModel.Store.sp_upgraddiagrams" />
   </EntityContainerMapping>
 </Mapping>

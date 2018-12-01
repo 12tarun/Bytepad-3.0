@@ -31,7 +31,7 @@ namespace Bytepad_3._0.Controllers
         }
         public ActionResult removePaper(int id)
         {
-            _paper.deletePaperByID(id);
+            _paper.DeletePaperByID(id);
             ViewBag.listOfPapers = _paperViewModel.getAllPapers();
             return RedirectToAction("Index");
         }

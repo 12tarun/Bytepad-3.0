@@ -30,7 +30,7 @@ namespace Bytepad_3._0.Controllers
             ViewBag.examType = _examType.GetAllExamTypes();
             ViewBag.session = _session.GetAllSessions();
             ViewBag.semester = _semester.GetAllSemesters();
-            if(TempData["failure"]!=null)
+            if (TempData["failure"] != null)
             {
                 ViewBag.rejectedFiles = TempData["failure"];
             }

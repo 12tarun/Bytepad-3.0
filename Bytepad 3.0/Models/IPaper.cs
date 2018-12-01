@@ -14,10 +14,7 @@ namespace Bytepad_3._0.Models
         int SubjectId { get; set; }
         void AddPaper(IPaper dataPaper);
         bool FindPaper(string dataPaper);
-<<<<<<< HEAD
         List<Paper> FindPapersBySubjectId(int id);
-=======
-        void deletePaperByID(int id);
->>>>>>> origin/surya
+        void DeletePaperByID(int id);
     }
 }

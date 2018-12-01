@@ -201,10 +201,8 @@ C:\Users\surya\OneDrive\Desktop\myProjects\Bytepad-3.0\Bytepad 3.0\obj\Debug\Byt
 C:\Users\surya\OneDrive\Desktop\myProjects\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.dll
 C:\Users\surya\OneDrive\Desktop\myProjects\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.pdb
 >>>>>>> origin/adminLogin
-<<<<<<< HEAD
 C:\Projects\Bytepad 3.0\Bytepad 3.0\bin\Unity.WebApi.dll
 C:\Projects\Bytepad 3.0\Bytepad 3.0\bin\WebActivatorEx.dll
-=======
 C:\Users\surya\OneDrive\Desktop\myProjects\bytepad new\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.csprojAssemblyReference.cache
 C:\Users\surya\OneDrive\Desktop\myProjects\bytepad new\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.csproj.CoreCompileInputs.cache
 C:\Users\surya\OneDrive\Desktop\myProjects\bytepad new\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.dll
