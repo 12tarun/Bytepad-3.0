@@ -24,6 +24,7 @@ namespace Bytepad_3._0.Controllers
 
         // GET: Addpapers
         [HttpGet]
+        [Authorize]
         public ActionResult Upload()
         {
             ViewBag.examType = _examType.GetAllExamTypes();

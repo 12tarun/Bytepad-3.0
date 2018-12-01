@@ -17,10 +17,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Add Papers","Index","Addpapers")</li>
+                    <li> @Html.ActionLink("View All Papers","Index","Viewpapers")</li>
+                    <li>
+                        @using (Html.BeginForm("Logout", "Login", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            <a style="color:white " href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+                        }
+                    </li>
                 </ul>
             </div>
         </div>
