@@ -304,3 +304,6 @@ C:\Users\surya\OneDrive\Desktop\myProjects\bytepad new\Bytepad-3.0\Bytepad 3.0\b
 C:\Users\surya\OneDrive\Desktop\myProjects\bytepad new\Bytepad-3.0\Bytepad 3.0\bin\System.Web.Http.WebHost.xml
 C:\Users\surya\OneDrive\Desktop\myProjects\bytepad new\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.csproj.CopyComplete
 >>>>>>> origin/surya
+C:\Projects\Bytepad 3.0\Bytepad 3.0\bin\System.Web.Cors.dll
+C:\Projects\Bytepad 3.0\Bytepad 3.0\bin\System.Web.Http.Cors.dll
+C:\Projects\Bytepad 3.0\Bytepad 3.0\bin\System.Web.Http.Cors.xml
