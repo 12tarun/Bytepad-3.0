@@ -4,7 +4,6 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Unity;
 using Unity.Mvc5;
-using Bytepad_3._0.Services;
 
 namespace Bytepad_3._0
 {
@@ -26,7 +25,6 @@ namespace Bytepad_3._0
             container.RegisterType<IPaper, Paper>();
             container.RegisterType<IFillPaper, FillPaper>();
             container.RegisterType<ILogin, Login>();
-            container.RegisterType<ICheckCredentials, CheckCredentials>();
             container.RegisterType<IPaperViewModel, PaperViewModel>();
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));

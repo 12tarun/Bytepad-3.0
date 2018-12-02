@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Bytepad_3._0.Services;
 
 namespace Bytepad_3._0.Controllers
 {
@@ -51,7 +50,7 @@ namespace Bytepad_3._0.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
