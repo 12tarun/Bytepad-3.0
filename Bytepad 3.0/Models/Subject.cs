@@ -9,6 +9,7 @@ namespace Bytepad_3._0.Models
     {
         public int Id { get; set; }
         public string SubjectName { get; set; }
+
         public List<Subject> GetAllSubjects()
         {
             List<Subject> dataSubject = new List<Subject>();
@@ -34,6 +35,7 @@ namespace Bytepad_3._0.Models
             }
             return dataSubject;
         }
+
         public int AddSubjects(ISubject dataSubject)
         {
             tblSubject dataTblSubject = new tblSubject();
@@ -41,7 +43,6 @@ namespace Bytepad_3._0.Models
             {
                 using (BytepadDBEntities db = new BytepadDBEntities())
                 {                 
-            //      dataTblSubject.Id = dataSubject.Id;
                     dataTblSubject.SubjectName = dataSubject.SubjectName;
                     db.tblSubjects.Add(dataTblSubject);
                     db.SaveChanges();
@@ -53,6 +54,7 @@ namespace Bytepad_3._0.Models
             }
             return dataTblSubject.Id;
         }
+
         public int FindSubject(ISubject dataSubject)
         {
             int id = -1;
