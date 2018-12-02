@@ -16,5 +16,6 @@ namespace Bytepad_3._0.Models
         bool FindPaper(string dataPaper);
         List<Paper> FindPapersBySubjectId(int id);
         void DeletePaperByID(int id);
+        List<Paper> GetAllPapers();
     }
 }

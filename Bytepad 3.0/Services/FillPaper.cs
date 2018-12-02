@@ -66,9 +66,7 @@ namespace Bytepad_3._0.Models
 
                     string a = _examType.GetExamType(objPaper.ExamTypeId);
                     string b = _session.GetSession(objPaper.SessionId);
-                    string c;
-                    if (objPaper.SemesterType.Equals("1")) c = "Even";
-                    else c = "Odd";
+                    string c = _semester.GetSemesterTypeById(objPaper.SemesterType);
 
                     string fileUrl = $"{a}/{b}/{c}/{item.FileName}";
 

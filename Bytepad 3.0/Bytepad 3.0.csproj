@@ -210,14 +210,15 @@
     <Compile Include="Controllers\AddpapersController.cs" />
     <Compile Include="Controllers\get_list_Controller.cs" />
     <Compile Include="Controllers\subject_detailController.cs" />
+    <Compile Include="Controllers\ViewpapersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ExamType.cs" />
     <Compile Include="Models\IPaper.cs" />
-    <Compile Include="Models\IPaperViewModel.cs" />
+    <Compile Include="Services\IPaperViewModel.cs" />
     <Compile Include="Models\ISubject.cs" />
-    <Compile Include="Models\PaperViewModel.cs" />
+    <Compile Include="Services\PaperViewModel.cs" />
     <Compile Include="Services\FillPaper.cs" />
     <Compile Include="Models\IExamType.cs" />
     <Compile Include="Models\ISemester.cs" />
