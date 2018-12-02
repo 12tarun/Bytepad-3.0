@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Bytepad_3._0.Models;
 
 namespace Bytepad_3._0.Controllers
@@ -18,6 +19,7 @@ namespace Bytepad_3._0.Controllers
         }
 
         // When in search box a subject is searched and selected, this controller brings all the subjects corresponding to the id of selected subject.
+        [EnableCors("*", "*", "*")]
         [HttpGet]
         [Route("api/get_list_")]
         public IHttpActionResult GetPapers(int subject_id)

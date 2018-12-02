@@ -34,7 +34,7 @@ namespace Bytepad_3._0.Models
                     // Filling subject table with new subjects
 
                     string[] inputFileNames = item.FileName.Split('/');
-                    _subject.SubjectName = inputFileNames[1].ToString();
+                    _subject.SubjectName = inputFileNames[1].ToString().ToLower();
                     if (_subject.SubjectName != null)
                     {
                         _subject.SubjectName = _subject.SubjectName.Replace(@".DOCX", "");
@@ -86,12 +86,12 @@ namespace Bytepad_3._0.Models
                         _paper.FileUrl = fileUrl;
                         _paper.AddPaper(_paper);
 
-                        string path = HttpContext.Current.Server.MapPath("~/Papers/" + a + "/" + b + "/" + c + "/" + inputFileNames[0]);
+                        string path = HttpContext.Current.Server.MapPath("~/Papers/" + a + "/" + b + "/" + c + "/" + inputFileNames[0].ToLower());
                         if (!Directory.Exists(path))
                         {
                             Directory.CreateDirectory(path);
                         }
-                        string finalPath = HttpContext.Current.Server.MapPath("~/Papers/" + a + "/" + b + "/" + c + "/" + inputFileNames[0] + "/" + inputFileNames[1]);
+                        string finalPath = HttpContext.Current.Server.MapPath("~/Papers/" + a + "/" + b + "/" + c + "/" + inputFileNames[0].ToLower() + "/" + inputFileNames[1].ToLower());
                         item.SaveAs(finalPath);
                     }
                 }

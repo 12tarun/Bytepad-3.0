@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Bytepad_3._0.Models;
 
 namespace Bytepad_3._0.Controllers
@@ -18,6 +19,7 @@ namespace Bytepad_3._0.Controllers
         }
 
         // Gets list of all subjects on the client side so that it can be used in search on frontend.
+        [EnableCors("*", "*", "*")]
         [HttpGet]
         [Route("api/subject_detail")]
         public IHttpActionResult GetSubjects()
