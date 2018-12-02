@@ -8,11 +8,12 @@ namespace Bytepad_3._0.Services
 {
     public class CheckCredentials : ICheckCredentials
     {
-        ILogin _login = null;
+        private ILogin _login = null;
         public CheckCredentials(ILogin login)
         {
             _login = login;
         }
+
         public bool validateUser(Login user)
         {
             return _login.isValidCredentials(user);

@@ -11,11 +11,12 @@ namespace Bytepad_3._0.Controllers
 {
     public class LoginController : Controller
     {
-        private ICheckCredentials _model = null;
-        public LoginController(ICheckCredentials Model)
+        private ILogin _login = null;
+        public LoginController(ILogin login)
         {
-            _model = Model;
+            _login = login;
         }
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -28,11 +29,12 @@ namespace Bytepad_3._0.Controllers
                 return View();
             }
         }
+
         [HttpPost]
         public ActionResult Index(Login user)
         {
             ViewBag.ErrorMessage = null;
-            if (_model.validateUser(user))
+            if (_login.isValidCredentials(user))
             {
                 var ticket = new FormsAuthenticationTicket("admin", true, 200);
                 var encrypted = FormsAuthentication.Encrypt(ticket);
@@ -48,6 +50,7 @@ namespace Bytepad_3._0.Controllers
                 return View();
             }
         }
+
         [HttpPost]
         public ActionResult Logout()
         {
