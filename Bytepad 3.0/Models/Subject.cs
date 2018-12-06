@@ -56,6 +56,7 @@ namespace Bytepad_3._0.Models
         }
 
         public int FindSubject(ISubject dataSubject)
+
         {
             int id = -1;
             try
@@ -74,6 +75,15 @@ namespace Bytepad_3._0.Models
                 string error = ex.ToString();
             }
             return id;
+        }
+        public string subjectDetailsById(int id)
+        {
+            tblSubject sub;
+            using (BytepadDBEntities db = new BytepadDBEntities())
+            {
+                sub = db.tblSubjects.FirstOrDefault(x=>x.Id==id);
+            }
+            return sub.SubjectName;
         }
     }
 }

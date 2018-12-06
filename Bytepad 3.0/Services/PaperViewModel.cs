@@ -19,13 +19,14 @@ namespace Bytepad_3._0
         private ISession _session = null;
         private IPaper _paper = null;
         private ISemester _semester = null;
-
-        public PaperViewModel(IExamType Examtype, ISession session, IPaper paper, ISemester semester)
+        private ISubject _subject = null;
+        public PaperViewModel(IExamType Examtype, ISession session, IPaper paper, ISemester semester,ISubject subject)
         {
             _examType = Examtype;
             _session = session;
             _paper = paper;
             _semester = semester;
+            _subject = subject;
         }
 
         public List<PaperViewModel> getAllPapers()
@@ -34,12 +35,13 @@ namespace Bytepad_3._0
             List<Paper> allPapers = _paper.GetAllPapers();
             foreach (var paper in allPapers)
             {
-                showPapers.Add(new PaperViewModel(_examType,_session,_paper,_semester)
+                showPapers.Add(new PaperViewModel(_examType, _session, _paper, _semester,_subject)
                 {
                     PaperID = paper.Id,
                     PaperType = paper.PaperType,
                     Semester = _semester.GetSemesterTypeById(paper.SemesterType),
                     ExamType = _examType.GetExamType(paper.ExamTypeId),
+                    SubjectDetails = _subject.subjectDetailsById(paper.SubjectId),
                     Session = _session.GetSession(paper.SessionId),
                     FileUrl = paper.FileUrl
                 });

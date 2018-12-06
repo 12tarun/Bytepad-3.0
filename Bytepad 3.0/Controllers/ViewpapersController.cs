@@ -29,7 +29,7 @@ namespace Bytepad_3._0.Controllers
         {
             string url = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + HttpRuntime.AppDomainAppVirtualPath + ("Papers") + "\\" + FileUrl;
             url = url.Replace("\\", "/");
-            System.Web.HttpContext.Current.Response.Redirect("https://docs.google.com/viewer?url=" + url);
+            System.Web.HttpContext.Current.Response.Redirect( url);
         }
 
         public ActionResult removePaper(int id)
