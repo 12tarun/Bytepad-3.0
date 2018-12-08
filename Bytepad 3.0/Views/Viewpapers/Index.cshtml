@@ -4,33 +4,68 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm("ViewAllPaper", "view_papaer_", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@*@using (Html.BeginForm("ViewAllPaper", "view_papaer_", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
-        <table class="table">
+    <table class="table">
+        <tr>
+            <th>Paper Id</th>
+            <th>Subject Details</th>
+            <th> Exam Type</th>
+            <th> Semester</th>
+            <th>Session</th>
+            <th>Paper Type</th>
+            <th> View</th>
+            <th>Remove</th>
+        </tr>
+        @foreach (var paper in ViewBag.listOfPapers)
+        {
             <tr>
-                <th>Paper Id</th>
-                <th>Subject Details</th>
-                <th> Exam Type</th>
-                <th> Semester</th>
-                <th>Session</th>
-                <th>Paper Type</th>
-                <th> View</th>
-                <th>Remove</th>
+                <td>@paper.PaperID</td>
+                <td>@paper.SubjectDetails</td>
+                <td>@paper.ExamType</td>
+                <td>@paper.Semester</td>
+                <td>@paper.Session</td>
+                <td>@paper.PaperType</td>
+                <td>@Html.ActionLink("View", "viewPaper", new { fileUrl = paper.FileUrl })</td>
+                <td>@Html.ActionLink("Remove", "removePaper", new { id = paper.PaperID })</td>
             </tr>
-            @foreach (var paper in ViewBag.listOfPapers)
-            {
-                <tr>
-                    <td>@paper.PaperID</td>
-                    <td>@paper.SubjectDetails</td>
-                    <td>@paper.ExamType</td>
-                    <td>@paper.Semester</td>
-                    <td>@paper.Session</td>
-                    <td>@paper.PaperType</td>
-                    <td>@Html.ActionLink("View","viewPaper",new { fileUrl =paper.FileUrl})</td>
-                    <td>@Html.ActionLink("Remove","removePaper",new { id =paper.PaperID })</td>
-                </tr>
-            }
-        </table>
-}
+        }
 
+    </table>
+}*@
+
+<div style="width:50%">
+    @foreach (var session in ViewBag.newList)
+    {
+        <br />
+        <div data-toggle="collapse" href="#@session.SessionId" role="button" aria-expanded="false" aria-controls="@session.SessionId">
+            <b style="font-size:15px">   @session.SessionName</b> (@session.Count papers)
+        </div>
+        <button style="float:right;text-decoration:none" class="btn">@Html.ActionLink("Remove Session", "removePapersBySessionId", new { sessionId = session.SessionId })</button>
+        <div class="collapse" id="@session.SessionId">
+            @foreach (var examType in session.examTypes)
+            {
+                <br />
+                string id = @session.SessionId.ToString() + @examType.ExamTypeId.ToString();
+
+                <div data-toggle="collapse" href="#@id" role="button" aria-expanded="false" aria-controls="@id">
+                    @examType.ExamTypeName (@examType.Count papers )
+                </div>
+                <button class="btn" style="float:right;text-decoration:none">@Html.ActionLink("Remove Exam Type", "removePapersByExamTypeAndSession", new { sessionId = session.SessionId, examTypeId = examType.ExamTypeId })</button>
+                <div class="collapse" id="@id">
+                    @foreach (var paper in examType.Papers)
+                    {
+                        <div>
+                            @paper.FileUrl
+                        </div>
+                        <button class="btn" style="float:right">@Html.ActionLink("Remove", "removePaper", new { id = paper.Id }) </button>
+                    }
+                </div>
+
+
+            }
+        </div>
+
+    }
+</div>

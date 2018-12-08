@@ -17,5 +17,8 @@ namespace Bytepad_3._0.Models
         List<Paper> FindPapersBySubjectId(int id);
         void DeletePaperByID(int id);
         List<Paper> GetAllPapers();
+        List<Paper> getPapersBySessionAndExamType(int sessionId, int examId);
+        void RemovePaperBySession(int sessionId);
+        void RemovePapersByExamTypeAndSession(int sessionId, int examTypeId);
     }
 }

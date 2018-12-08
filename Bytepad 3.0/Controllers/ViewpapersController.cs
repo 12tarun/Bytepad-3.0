@@ -21,7 +21,8 @@ namespace Bytepad_3._0.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            ViewBag.listOfPapers = _paperViewModel.getAllPapers();
+            //ViewBag.listOfPapers = _paperViewModel.getAllPapers();
+            ViewBag.newList = _paperViewModel.getAll();
             return View();
         }
 
@@ -35,8 +36,19 @@ namespace Bytepad_3._0.Controllers
         public ActionResult removePaper(int id)
         {
             _paper.DeletePaperByID(id);
-            ViewBag.listOfPapers = _paperViewModel.getAllPapers();
+            return RedirectToAction("Index");
+            
+        }
+        public ActionResult removePapersBySessionId(int sessionId)
+        {
+            _paperViewModel.RemovePaperBySession(sessionId);
             return RedirectToAction("Index");
         }
+        public ActionResult removePapersByExamTypeAndSession(int sessionId,int examTypeId)
+        {
+            _paperViewModel.RemovePapersByExamTypeAndSession(sessionId,examTypeId);
+            return RedirectToAction("Index");
+        }
+
     }
 }
