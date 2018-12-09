@@ -8,6 +8,7 @@ namespace Bytepad_3._0.Models
         string SubjectName { get; set; }
         int AddSubjects(ISubject dataSubject);
         int FindSubject(ISubject dataSubject);
+        string subjectDetailsById(int id);
         List<Subject> GetAllSubjects();
     }
 }

@@ -16,6 +16,30 @@ namespace Bytepad_3._0.Models
         public string PaperType { get; set; }
         public string FileUrl { get; set; }
 
+        public List<Paper> getPapersBySessionAndExamType(int sessionId,int examId)
+        {
+            List<Paper> allPapers=new List<Paper>();
+            using (BytepadDBEntities db = new BytepadDBEntities())
+            {
+               List<tblPaper> papers= db.tblPapers.Where(x=>x.SessionId==sessionId&&x.ExamTypeId==examId).ToList();
+                foreach(var paper in papers)
+                {
+                    Paper newPaper = new Paper
+                    {
+                        Id=paper.Id,
+                        SessionId=paper.SessionId,
+                        AdminId=paper.AdminId,
+                        SubjectId=paper.SubjectId,
+                        ExamTypeId=paper.ExamTypeId,
+                        SemesterType=paper.SemesterType,
+                        PaperType=paper.PaperType,
+                        FileUrl=paper.FileUrl
+                    };
+                    allPapers.Add(newPaper);
+                }
+            }
+            return allPapers;
+        }
         public void DeletePaperByID(int id)
         {
             using (BytepadDBEntities db = new BytepadDBEntities())
@@ -29,7 +53,37 @@ namespace Bytepad_3._0.Models
                 db.SaveChanges();
             }
         }
+        public void RemovePaperBySession(int sessionId)
+        {
+            using (BytepadDBEntities db = new BytepadDBEntities())
+            {
+                var papers = db.tblPapers.Where(x=>x.SessionId==sessionId).ToList();
+                foreach(var paper in papers)
+                {
+                    string physicalPathDeleted = System.Web.HttpContext.Current.Server.MapPath("~\\"+("Papers")+"/"+paper.FileUrl);
+                    if (System.IO.File.Exists(physicalPathDeleted))
+                        System.IO.File.Delete(physicalPathDeleted);
+                }
+                db.tblPapers.RemoveRange(papers);
+                db.SaveChanges();
+            }
+        }
+        public void RemovePapersByExamTypeAndSession(int sessionId, int examTypeId)
+        {
+            using (BytepadDBEntities db = new BytepadDBEntities())
+            {
+                var papers = db.tblPapers.Where(x => x.SessionId == sessionId && x.ExamTypeId == examTypeId).ToList();
+                foreach (var paper in papers)
+                {
+                    string physicalPathDeleted = System.Web.HttpContext.Current.Server.MapPath("~\\" + ("Papers") + "/" + paper.FileUrl);
+                    if (System.IO.File.Exists(physicalPathDeleted))
+                        System.IO.File.Delete(physicalPathDeleted);
+                }
+                db.tblPapers.RemoveRange(papers);
+                db.SaveChanges();
 
+            }
+        }
         public bool FindPaper(string fileUrl)
         {
             bool present = false;

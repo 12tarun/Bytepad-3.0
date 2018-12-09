@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Bytepad_3._0.Services;
+using System.Collections.Generic;
 
 namespace Bytepad_3._0
 {
@@ -12,5 +13,8 @@ namespace Bytepad_3._0
         string SubjectDetails { get; set; }
         string FileUrl{ get; set; }
         List<PaperViewModel> getAllPapers();
+        List<PaperViewSession> getAll();
+        void RemovePaperBySession(int sessionId);
+        void RemovePapersByExamTypeAndSession(int sessionId, int examTypeId);
     }
 }
