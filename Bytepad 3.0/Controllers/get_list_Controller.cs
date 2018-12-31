@@ -22,9 +22,10 @@ namespace Bytepad_3._0.Controllers
         [EnableCors("*", "*", "*")]
         [HttpGet]
         [Route("api/get_list_")]
-        public IHttpActionResult GetPapers(int subject_id)
+        public IHttpActionResult GetPapers()
         {
-            List<Paper> papersOfSameSubject = _paper.FindPapersBySubjectId(subject_id); 
+
+            List<Paper> papersOfSameSubject = _paper.GetAllPapers(); 
             return Ok(papersOfSameSubject);
         }
     }
