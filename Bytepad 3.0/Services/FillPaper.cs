@@ -66,7 +66,7 @@ namespace Bytepad_3._0.Models
 
                     string a = _examType.GetExamType(objPaper.ExamTypeId);
                     string b = _session.GetSession(objPaper.SessionId);
-                    string c = _semester.GetSemesterTypeById(objPaper.SemesterType);
+                    string c = _semester.GetSemesterTypeById(objPaper.SemesterType.ToString());
 
                     string fileUrl = $"{a}/{b}/{c}/{item.FileName}";
 

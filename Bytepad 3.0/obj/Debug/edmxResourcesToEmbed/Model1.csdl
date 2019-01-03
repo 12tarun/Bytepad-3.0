@@ -50,6 +50,13 @@
     <Property Name="SubjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="tblPapers" Relationship="Self.FK_tblPaper_tblSubject" FromRole="tblSubject" ToRole="tblPaper" />
   </EntityType>
+  <EntityType Name="tblVersion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="LastAddPaperTime" Type="DateTime" Precision="3" />
+  </EntityType>
   <Association Name="FK_tblPaper_tblAdmin">
     <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="1" />
     <End Role="tblPaper" Type="Self.tblPaper" Multiplicity="*" />
@@ -104,6 +111,7 @@
     <EntitySet Name="tblPapers" EntityType="Self.tblPaper" />
     <EntitySet Name="tblSessions" EntityType="Self.tblSession" />
     <EntitySet Name="tblSubjects" EntityType="Self.tblSubject" />
+    <EntitySet Name="tblVersions" EntityType="Self.tblVersion" />
     <AssociationSet Name="FK_tblPaper_tblAdmin" Association="Self.FK_tblPaper_tblAdmin">
       <End Role="tblAdmin" EntitySet="tblAdmins" />
       <End Role="tblPaper" EntitySet="tblPapers" />

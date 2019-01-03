@@ -12,7 +12,7 @@ namespace Bytepad_3._0.Models
         public int SessionId { get; set; }
         public int SubjectId { get; set; }
         public int ExamTypeId { get; set; }
-        public string SemesterType { get; set; }
+        public int SemesterType { get; set; }
         public string PaperType { get; set; }
         public string FileUrl { get; set; }
 
@@ -31,7 +31,7 @@ namespace Bytepad_3._0.Models
                         AdminId=paper.AdminId,
                         SubjectId=paper.SubjectId,
                         ExamTypeId=paper.ExamTypeId,
-                        SemesterType=paper.SemesterType,
+                        SemesterType=Convert.ToInt32( paper.SemesterType),
                         PaperType=paper.PaperType,
                         FileUrl=paper.FileUrl
                     };
@@ -117,7 +117,7 @@ namespace Bytepad_3._0.Models
                         SessionId = dataPaper.SessionId,
                         SubjectId = dataPaper.SubjectId,
                         ExamTypeId = dataPaper.ExamTypeId,
-                        SemesterType = dataPaper.SemesterType,
+                        SemesterType = dataPaper.SemesterType.ToString(),
                         PaperType = dataPaper.PaperType,
                         FileUrl = dataPaper.FileUrl
                     };
@@ -149,7 +149,7 @@ namespace Bytepad_3._0.Models
                                 SessionId = paper.SessionId,
                                 SubjectId = paper.SubjectId,
                                 ExamTypeId = paper.ExamTypeId,
-                                SemesterType = paper.SemesterType,
+                                SemesterType =Convert.ToInt32(paper.SemesterType),
                                 PaperType = paper.PaperType,
                                 FileUrl = paper.FileUrl
                             });
@@ -182,7 +182,7 @@ namespace Bytepad_3._0.Models
                             SessionId = item.SessionId,
                             SubjectId = item.SubjectId,
                             ExamTypeId = item.ExamTypeId,
-                            SemesterType = item.SemesterType,
+                            SemesterType = Convert.ToInt32(item.SemesterType),
                             FileUrl = item.FileUrl,
                             PaperType = item.PaperType
                         });

@@ -13,13 +13,15 @@ namespace Bytepad_3._0.Controllers
         private ISession _session = null;
         private ISemester _semester = null;
         private IFillPaper _fillPaper = null;
+        private IVersion _version = null;
 
-        public AddpapersController(IExamType examType, ISession session, ISemester semester, IFillPaper fillPaper)
+        public AddpapersController(IExamType examType, ISession session, ISemester semester, IFillPaper fillPaper,IVersion version)
         {
             _examType = examType;
             _session = session;
             _semester = semester;
             _fillPaper = fillPaper;
+            _version = version;
         }
 
         // GET: Addpapers
@@ -45,6 +47,7 @@ namespace Bytepad_3._0.Controllers
             _fillPaper.FilledPapers(objPaper, ListOfPaper, out listOfRejectedFiles);
             TempData["success"] = "Successfully Added!";
             TempData["failure"] = listOfRejectedFiles;
+            _version.updateLastAddPaperTime();
             return RedirectToAction("Upload");
         }
     }

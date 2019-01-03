@@ -26,7 +26,7 @@ namespace Bytepad_3._0
             container.RegisterType<IFillPaper, FillPaper>();
             container.RegisterType<ILogin, Login>();
             container.RegisterType<IPaperViewModel, PaperViewModel>();
-
+            container.RegisterType<IVersion, Version>();
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
         }

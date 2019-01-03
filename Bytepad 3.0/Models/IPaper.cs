@@ -9,7 +9,7 @@ namespace Bytepad_3._0.Models
         string FileUrl { get; set; }
         int Id { get; set; }
         string PaperType { get; set; }
-        string SemesterType { get; set; }
+        int SemesterType { get; set; }
         int SessionId { get; set; }
         int SubjectId { get; set; }
         void AddPaper(IPaper dataPaper);

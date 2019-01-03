@@ -48,5 +48,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tblVersions">
+      <EntityTypeMapping TypeName="DBBytepadModel.tblVersion">
+        <MappingFragment StoreEntitySet="tblVersion">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LastAddPaperTime" ColumnName="LastAddPaperTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

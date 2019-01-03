@@ -24,8 +24,18 @@ namespace Bytepad_3._0.Controllers
         [Route("api/get_list_")]
         public IHttpActionResult GetPapers()
         {
-
+            //android app end point
             List<Paper> papersOfSameSubject = _paper.GetAllPapers(); 
+            return Ok(papersOfSameSubject);
+        }
+
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        [Route("api/get_list_")]
+        public IHttpActionResult GetPapers(int subject_id)
+        {
+            //angular frontend end point
+            List<Paper> papersOfSameSubject = _paper.FindPapersBySubjectId(subject_id);
             return Ok(papersOfSameSubject);
         }
     }

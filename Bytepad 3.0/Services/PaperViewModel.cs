@@ -48,7 +48,7 @@ namespace Bytepad_3._0
                 {
                     PaperID = paper.Id,
                     PaperType = paper.PaperType,
-                    Semester = _semester.GetSemesterTypeById(paper.SemesterType),
+                    Semester = _semester.GetSemesterTypeById(paper.SemesterType.ToString()),
                     ExamType = _examType.GetExamType(paper.ExamTypeId),
                     SubjectDetails = _subject.subjectDetailsById(paper.SubjectId),
                     Session = _session.GetSession(paper.SessionId),

@@ -11,10 +11,12 @@ namespace Bytepad_3._0.Controllers
     {
         IPaperViewModel _paperViewModel = null;
         IPaper _paper = null;
-        public ViewpapersController(IPaperViewModel paperViewModel, IPaper paper)
+        IVersion _version=null;
+        public ViewpapersController(IPaperViewModel paperViewModel, IPaper paper,IVersion version)
         {
             _paperViewModel = paperViewModel;
             _paper = paper;
+            _version = version;
         }
 
         // GET: Viewpapers
@@ -36,17 +38,21 @@ namespace Bytepad_3._0.Controllers
         public ActionResult removePaper(int id)
         {
             _paper.DeletePaperByID(id);
+            _version.updateLastAddPaperTime();
             return RedirectToAction("Index");
+      
             
         }
         public ActionResult removePapersBySessionId(int sessionId)
         {
             _paperViewModel.RemovePaperBySession(sessionId);
+            _version.updateLastAddPaperTime();
             return RedirectToAction("Index");
         }
         public ActionResult removePapersByExamTypeAndSession(int sessionId,int examTypeId)
         {
             _paperViewModel.RemovePapersByExamTypeAndSession(sessionId,examTypeId);
+            _version.updateLastAddPaperTime();
             return RedirectToAction("Index");
         }
 
