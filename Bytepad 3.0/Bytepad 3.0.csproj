@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -24,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -178,8 +180,51 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Scripts\app\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="Scripts\app\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="Scripts\app\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="Scripts\app\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="Scripts\app\Roboto-Bold.39b2c3031be6b4ea96e2.woff2" />
+    <Content Include="Scripts\app\Roboto-Bold.dc81817def276b4f2139.woff" />
+    <Content Include="Scripts\app\Roboto-Bold.e31fcf1885e371e19f57.ttf" />
+    <Content Include="Scripts\app\Roboto-Bold.ecdd509cadbf1ea78b8d.eot" />
+    <Content Include="Scripts\app\Roboto-Light.3b813c2ae0d04909a33a.woff" />
+    <Content Include="Scripts\app\Roboto-Light.46e48ce0628835f68a73.ttf" />
+    <Content Include="Scripts\app\Roboto-Light.69f8a0617ac472f78e45.woff2" />
+    <Content Include="Scripts\app\Roboto-Light.a990f611f2305dc12965.eot" />
+    <Content Include="Scripts\app\Roboto-Medium.4d9f3f9e5195e7b074bb.eot" />
+    <Content Include="Scripts\app\Roboto-Medium.574fd0b50367f886d359.woff2" />
+    <Content Include="Scripts\app\Roboto-Medium.894a2ede85a483bf9bed.ttf" />
+    <Content Include="Scripts\app\Roboto-Medium.fc78759e93a6cac50458.woff" />
+    <Content Include="Scripts\app\Roboto-Regular.2751ee43015f9884c364.woff2" />
+    <Content Include="Scripts\app\Roboto-Regular.30799efa5bf74129468a.eot" />
+    <Content Include="Scripts\app\Roboto-Regular.ba3dcd8903e3d0af5de7.woff" />
+    <Content Include="Scripts\app\Roboto-Regular.df7b648ce5356ea1ebce.ttf" />
+    <Content Include="Scripts\app\Roboto-Thin.7500519de3d82e33d158.woff" />
+    <Content Include="Scripts\app\Roboto-Thin.94998475f6aea65f5584.ttf" />
+    <Content Include="Scripts\app\Roboto-Thin.954bbdeb86483e4ffea0.woff2" />
+    <Content Include="Scripts\app\Roboto-Thin.dfe56a876d0282555d1e.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\App\quiz-controller.js" />
+    <Content Include="Scripts\app\01.0a3750e6fdb29fcd632e.png" />
+    <Content Include="Scripts\app\02.351bd6828f980ec53eb3.png" />
+    <Content Include="Scripts\app\03.e438ea2aabdb1087dc4f.png" />
+    <Content Include="Scripts\app\04.0284d042a6c29213aaa1.png" />
+    <Content Include="Scripts\app\05.5014f9cce435c71ade63.png" />
+    <Content Include="Scripts\app\06.21612b9d3e9d84e7e876.png" />
+    <Content Include="Scripts\app\07.f8da0281186df8f17f73.png" />
+    <Content Include="Scripts\app\08.975f7e0074400e7561ba.png" />
+    <Content Include="Scripts\app\09.fd19309a1932b4751387.png" />
+    <Content Include="Scripts\app\3rdpartylicenses.txt" />
+    <Content Include="Scripts\app\arrow_left.270f72df47e036d9cfa1.svg" />
+    <Content Include="Scripts\app\arrow_right.d9ccc77c8240ad0dc272.svg" />
+    <Content Include="Scripts\app\favicon.ico" />
+    <Content Include="Scripts\app\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="Scripts\app\index.html" />
+    <Content Include="Scripts\app\main.01c91025fc800bb6758a.js" />
+    <Content Include="Scripts\app\polyfills.fb087d5ed4ca4d598c4b.js" />
+    <Content Include="Scripts\app\runtime.b57bf819d5bdce77f1c7.js" />
+    <Content Include="Scripts\app\scripts.7433f3276ddf37fa9320.js" />
+    <Content Include="Scripts\app\styles.4fa9b63a0191618a1463.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -190,6 +235,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\error.html" />
     <Content Include="Web.config" />
     <Content Include="Views\Viewpapers\Index.cshtml" />
     <None Include="Web.Debug.config">
@@ -204,6 +250,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AddpapersController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\get_list_Controller.cs" />
     <Compile Include="Controllers\last_update_Controller.cs" />
     <Compile Include="Controllers\subject_detailController.cs" />
@@ -282,8 +329,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Papers\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
@@ -291,6 +340,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

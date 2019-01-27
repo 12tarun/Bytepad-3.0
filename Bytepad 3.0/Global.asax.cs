@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using System.Net;
 
 namespace Bytepad_3._0
 {
@@ -19,6 +20,25 @@ namespace Bytepad_3._0
             UnityConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
+        }
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception lastErrorInfo = Server.GetLastError();
+            Exception errorInfo = null;
+
+            bool isNotFound = false;
+            if (lastErrorInfo != null)
+            {
+                errorInfo = lastErrorInfo.GetBaseException();
+                var error = errorInfo as HttpException;
+                if (error != null)
+                    isNotFound = error.GetHttpCode() == (int)HttpStatusCode.NotFound;
+            }
+            if (isNotFound)
+            {
+                Server.ClearError();
+                Response.Redirect("~/Error/NotFound");// Do what you need to render in view
+            }
         }
     }
 }
