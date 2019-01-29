@@ -151,14 +151,42 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="01.0a3750e6fdb29fcd632e.png" />
+    <Content Include="02.351bd6828f980ec53eb3.png" />
+    <Content Include="03.e438ea2aabdb1087dc4f.png" />
+    <Content Include="04.0284d042a6c29213aaa1.png" />
+    <Content Include="05.5014f9cce435c71ade63.png" />
+    <Content Include="06.21612b9d3e9d84e7e876.png" />
+    <Content Include="07.f8da0281186df8f17f73.png" />
+    <Content Include="08.975f7e0074400e7561ba.png" />
+    <Content Include="09.fd19309a1932b4751387.png" />
+    <Content Include="3rdpartylicenses.txt" />
+    <Content Include="arrow_left.270f72df47e036d9cfa1.svg" />
+    <Content Include="arrow_right.d9ccc77c8240ad0dc272.svg" />
+    <Content Include="assets\app-store-android-download.png" />
+    <Content Include="assets\app_land.svg" />
+    <Content Include="assets\download.svg" />
+    <Content Include="assets\Download_App_Store.png" />
+    <Content Include="assets\image_preview.png" />
+    <Content Include="assets\landing.svg" />
+    <Content Include="assets\Landing_background.svg" />
+    <Content Include="assets\loader.svg" />
+    <Content Include="assets\logo.svg" />
+    <Content Include="assets\logo_2.png" />
+    <Content Include="assets\not_found.svg" />
+    <Content Include="assets\playstore.svg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fontawesome-webfont.912ec66d7572ff821749.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="index.html" />
+    <Content Include="main.96ff617e8aa9f7ca627e.js" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -169,6 +197,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="polyfills.fb087d5ed4ca4d598c4b.js" />
+    <Content Include="runtime.b57bf819d5bdce77f1c7.js" />
+    <Content Include="scripts.7433f3276ddf37fa9320.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -180,51 +211,31 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Scripts\app\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
-    <Content Include="Scripts\app\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
-    <Content Include="Scripts\app\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
-    <Content Include="Scripts\app\fontawesome-webfont.fee66e712a8a08eef580.woff" />
-    <Content Include="Scripts\app\Roboto-Bold.39b2c3031be6b4ea96e2.woff2" />
-    <Content Include="Scripts\app\Roboto-Bold.dc81817def276b4f2139.woff" />
-    <Content Include="Scripts\app\Roboto-Bold.e31fcf1885e371e19f57.ttf" />
-    <Content Include="Scripts\app\Roboto-Bold.ecdd509cadbf1ea78b8d.eot" />
-    <Content Include="Scripts\app\Roboto-Light.3b813c2ae0d04909a33a.woff" />
-    <Content Include="Scripts\app\Roboto-Light.46e48ce0628835f68a73.ttf" />
-    <Content Include="Scripts\app\Roboto-Light.69f8a0617ac472f78e45.woff2" />
-    <Content Include="Scripts\app\Roboto-Light.a990f611f2305dc12965.eot" />
-    <Content Include="Scripts\app\Roboto-Medium.4d9f3f9e5195e7b074bb.eot" />
-    <Content Include="Scripts\app\Roboto-Medium.574fd0b50367f886d359.woff2" />
-    <Content Include="Scripts\app\Roboto-Medium.894a2ede85a483bf9bed.ttf" />
-    <Content Include="Scripts\app\Roboto-Medium.fc78759e93a6cac50458.woff" />
-    <Content Include="Scripts\app\Roboto-Regular.2751ee43015f9884c364.woff2" />
-    <Content Include="Scripts\app\Roboto-Regular.30799efa5bf74129468a.eot" />
-    <Content Include="Scripts\app\Roboto-Regular.ba3dcd8903e3d0af5de7.woff" />
-    <Content Include="Scripts\app\Roboto-Regular.df7b648ce5356ea1ebce.ttf" />
-    <Content Include="Scripts\app\Roboto-Thin.7500519de3d82e33d158.woff" />
-    <Content Include="Scripts\app\Roboto-Thin.94998475f6aea65f5584.ttf" />
-    <Content Include="Scripts\app\Roboto-Thin.954bbdeb86483e4ffea0.woff2" />
-    <Content Include="Scripts\app\Roboto-Thin.dfe56a876d0282555d1e.eot" />
+    <Content Include="fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="Roboto-Bold.39b2c3031be6b4ea96e2.woff2" />
+    <Content Include="Roboto-Bold.dc81817def276b4f2139.woff" />
+    <Content Include="Roboto-Bold.e31fcf1885e371e19f57.ttf" />
+    <Content Include="Roboto-Bold.ecdd509cadbf1ea78b8d.eot" />
+    <Content Include="Roboto-Light.3b813c2ae0d04909a33a.woff" />
+    <Content Include="Roboto-Light.46e48ce0628835f68a73.ttf" />
+    <Content Include="Roboto-Light.69f8a0617ac472f78e45.woff2" />
+    <Content Include="Roboto-Light.a990f611f2305dc12965.eot" />
+    <Content Include="Roboto-Medium.4d9f3f9e5195e7b074bb.eot" />
+    <Content Include="Roboto-Medium.574fd0b50367f886d359.woff2" />
+    <Content Include="Roboto-Medium.894a2ede85a483bf9bed.ttf" />
+    <Content Include="Roboto-Medium.fc78759e93a6cac50458.woff" />
+    <Content Include="Roboto-Regular.2751ee43015f9884c364.woff2" />
+    <Content Include="Roboto-Regular.30799efa5bf74129468a.eot" />
+    <Content Include="Roboto-Regular.ba3dcd8903e3d0af5de7.woff" />
+    <Content Include="Roboto-Regular.df7b648ce5356ea1ebce.ttf" />
+    <Content Include="Roboto-Thin.7500519de3d82e33d158.woff" />
+    <Content Include="Roboto-Thin.94998475f6aea65f5584.ttf" />
+    <Content Include="Roboto-Thin.954bbdeb86483e4ffea0.woff2" />
+    <Content Include="Roboto-Thin.dfe56a876d0282555d1e.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\app\01.0a3750e6fdb29fcd632e.png" />
-    <Content Include="Scripts\app\02.351bd6828f980ec53eb3.png" />
-    <Content Include="Scripts\app\03.e438ea2aabdb1087dc4f.png" />
-    <Content Include="Scripts\app\04.0284d042a6c29213aaa1.png" />
-    <Content Include="Scripts\app\05.5014f9cce435c71ade63.png" />
-    <Content Include="Scripts\app\06.21612b9d3e9d84e7e876.png" />
-    <Content Include="Scripts\app\07.f8da0281186df8f17f73.png" />
-    <Content Include="Scripts\app\08.975f7e0074400e7561ba.png" />
-    <Content Include="Scripts\app\09.fd19309a1932b4751387.png" />
-    <Content Include="Scripts\app\3rdpartylicenses.txt" />
-    <Content Include="Scripts\app\arrow_left.270f72df47e036d9cfa1.svg" />
-    <Content Include="Scripts\app\arrow_right.d9ccc77c8240ad0dc272.svg" />
-    <Content Include="Scripts\app\favicon.ico" />
-    <Content Include="Scripts\app\fontawesome-webfont.912ec66d7572ff821749.svg" />
-    <Content Include="Scripts\app\index.html" />
-    <Content Include="Scripts\app\main.01c91025fc800bb6758a.js" />
-    <Content Include="Scripts\app\polyfills.fb087d5ed4ca4d598c4b.js" />
-    <Content Include="Scripts\app\runtime.b57bf819d5bdce77f1c7.js" />
-    <Content Include="Scripts\app\scripts.7433f3276ddf37fa9320.js" />
-    <Content Include="Scripts\app\styles.4fa9b63a0191618a1463.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -235,6 +246,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="styles.4fa9b63a0191618a1463.css" />
     <Content Include="Views\error.html" />
     <Content Include="Web.config" />
     <Content Include="Views\Viewpapers\Index.cshtml" />
@@ -273,27 +285,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\IVersion.cs" />
-    <Compile Include="Models\Version.cs" />
-    <Compile Include="Models\ExamType.cs" />
-    <Compile Include="Models\IPaper.cs" />
+    <Compile Include="Models - Copy\ExamType.cs" />
+    <Compile Include="Models - Copy\IExamType.cs" />
+    <Compile Include="Models - Copy\ILogin.cs" />
+    <Compile Include="Models - Copy\IPaper.cs" />
+    <Compile Include="Models - Copy\ISemester.cs" />
+    <Compile Include="Models - Copy\ISession.cs" />
+    <Compile Include="Models - Copy\ISubject.cs" />
+    <Compile Include="Models - Copy\IVersion.cs" />
+    <Compile Include="Models - Copy\Login.cs" />
+    <Compile Include="Models - Copy\Paper.cs" />
+    <Compile Include="Models - Copy\Semester.cs" />
+    <Compile Include="Models - Copy\Session.cs" />
+    <Compile Include="Models - Copy\Subject.cs" />
+    <Compile Include="Models - Copy\Version.cs" />
     <Compile Include="Services\IPaperViewModel.cs" />
-    <Compile Include="Models\ISubject.cs" />
     <Compile Include="Services\PaperViewExamType.cs" />
     <Compile Include="Services\PaperViewModel.cs" />
     <Compile Include="Services\FillPaper.cs" />
-    <Compile Include="Models\IExamType.cs" />
-    <Compile Include="Models\ISemester.cs" />
-    <Compile Include="Models\ISession.cs" />
-    <Compile Include="Models\Paper.cs" />
-    <Compile Include="Models\Semester.cs" />
-    <Compile Include="Models\Session.cs" />
-    <Compile Include="Models\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IFillPaper.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Models\ILogin.cs" />
-    <Compile Include="Models\Login.cs" />
     <Compile Include="Services\PaperViewSession.cs" />
     <Compile Include="tblAdmin.cs">
       <DependentUpon>Model1.tt</DependentUpon>

@@ -71,7 +71,7 @@ namespace Bytepad_3._0
                         ExamTypeId = examtype.Id,
                         ExamTypeName=examtype.Exam
                     };
-                    List<Paper> paperList = _paper.getPapersBySessionAndExamType(examtype.Id,session.Id);
+                    List<Paper> paperList = _paper.getPapersBySessionAndExamType(session.Id,examtype.Id);
                     paperviewExam.Papers = paperList;
                     paperviewExam.Count = paperList.Count();
                     paperViewExamTypes.Add(paperviewExam);
