@@ -23,25 +23,20 @@ namespace Bytepad_3._0.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            //ViewBag.listOfPapers = _paperViewModel.getAllPapers();
             ViewBag.newList = _paperViewModel.getAll();
             return View();
         }
-
         public void viewPaper(string FileUrl)
         {
             string url = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + HttpRuntime.AppDomainAppVirtualPath + ("Papers") + "\\" + FileUrl;
             url = url.Replace("\\", "/");
             System.Web.HttpContext.Current.Response.Redirect( url);
         }
-
         public ActionResult removePaper(int id)
         {
             _paper.DeletePaperByID(id);
             _version.updateLastAddPaperTime();
-            return RedirectToAction("Index");
-      
-            
+            return RedirectToAction("Index");    
         }
         public ActionResult removePapersBySessionId(int sessionId)
         {
@@ -55,6 +50,5 @@ namespace Bytepad_3._0.Controllers
             _version.updateLastAddPaperTime();
             return RedirectToAction("Index");
         }
-
     }
 }

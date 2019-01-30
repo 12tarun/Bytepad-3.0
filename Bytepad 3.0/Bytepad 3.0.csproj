@@ -175,6 +175,16 @@
     <Content Include="assets\logo_2.png" />
     <Content Include="assets\not_found.svg" />
     <Content Include="assets\playstore.svg" />
+    <Content Include="BytepadDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BytepadDB.edmx</DependentUpon>
+      <LastGenOutput>BytepadDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BytepadDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BytepadDB.edmx</DependentUpon>
+      <LastGenOutput>BytepadDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -187,16 +197,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="index.html" />
     <Content Include="main.96ff617e8aa9f7ca627e.js" />
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="polyfills.fb087d5ed4ca4d598c4b.js" />
     <Content Include="runtime.b57bf819d5bdce77f1c7.js" />
     <Content Include="scripts.7433f3276ddf37fa9320.js" />
@@ -204,13 +204,6 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -235,6 +228,13 @@
     <Content Include="Roboto-Thin.94998475f6aea65f5584.ttf" />
     <Content Include="Roboto-Thin.954bbdeb86483e4ffea0.woff2" />
     <Content Include="Roboto-Thin.dfe56a876d0282555d1e.eot" />
+    <EntityDeploy Include="BytepadDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BytepadDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="BytepadDB.edmx.diagram">
+      <DependentUpon>BytepadDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -261,6 +261,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BytepadDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BytepadDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BytepadDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BytepadDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BytepadDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BytepadDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AddpapersController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\get_list_Controller.cs" />
@@ -270,35 +285,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models - Copy\ExamType.cs" />
-    <Compile Include="Models - Copy\IExamType.cs" />
-    <Compile Include="Models - Copy\ILogin.cs" />
-    <Compile Include="Models - Copy\IPaper.cs" />
-    <Compile Include="Models - Copy\ISemester.cs" />
-    <Compile Include="Models - Copy\ISession.cs" />
-    <Compile Include="Models - Copy\ISubject.cs" />
-    <Compile Include="Models - Copy\IVersion.cs" />
-    <Compile Include="Models - Copy\Login.cs" />
-    <Compile Include="Models - Copy\Paper.cs" />
-    <Compile Include="Models - Copy\Semester.cs" />
-    <Compile Include="Models - Copy\Session.cs" />
-    <Compile Include="Models - Copy\Subject.cs" />
-    <Compile Include="Models - Copy\Version.cs" />
+    <Compile Include="Models\ExamType.cs" />
+    <Compile Include="Models\IExamType.cs" />
+    <Compile Include="Models\ILogin.cs" />
+    <Compile Include="Models\IPaper.cs" />
+    <Compile Include="Models\ISemester.cs" />
+    <Compile Include="Models\ISession.cs" />
+    <Compile Include="Models\ISubject.cs" />
+    <Compile Include="Models\IVersion.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Paper.cs" />
+    <Compile Include="Models\Semester.cs" />
+    <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\Version.cs" />
     <Compile Include="Services\IPaperViewModel.cs" />
     <Compile Include="Services\PaperViewExamType.cs" />
     <Compile Include="Services\PaperViewModel.cs" />
@@ -308,22 +308,22 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Services\PaperViewSession.cs" />
     <Compile Include="tblAdmin.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BytepadDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tblExamType.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BytepadDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tblPaper.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BytepadDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tblSession.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BytepadDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tblSubject.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BytepadDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tblVersion.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BytepadDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

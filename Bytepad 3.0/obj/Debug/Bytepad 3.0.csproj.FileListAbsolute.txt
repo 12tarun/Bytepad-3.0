@@ -410,3 +410,4 @@ C:\Users\surya\OneDrive\Desktop\bytepad\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepa
 C:\Users\surya\OneDrive\Desktop\bytepad\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.csproj.CopyComplete
 C:\Users\surya\OneDrive\Desktop\bytepad\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.dll
 C:\Users\surya\OneDrive\Desktop\bytepad\Bytepad-3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.pdb
+C:\Projects\Bytepad 3.0\Bytepad 3.0\obj\Debug\Bytepad 3.0.csprojAssemblyReference.cache

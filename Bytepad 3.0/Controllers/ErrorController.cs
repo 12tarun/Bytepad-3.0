@@ -8,12 +8,10 @@ namespace Bytepad_3._0.Controllers
 {
     public class ErrorController : Controller
     {
-        // GET: Error
+        // Returns to bytepad.silive.in when bytepad.silive.in/xyz.... is requested.
         public ActionResult NotFound()
         {
-            //Response.AddHeader("Content-Disposition",new System.Net.Mime.ContentDisposition {Inline=true,FileName="error.html" }.ToString());
             return File(Server.MapPath("~/index.html"),"text/html");
-
         }
     }
 }

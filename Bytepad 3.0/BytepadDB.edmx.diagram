@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d1373769b30543e8805b75026ee7679e" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="BytepadDBModel.tblAdmin" Width="1.5" PointX="1.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BytepadDBModel.tblExamType" Width="1.5" PointX="1.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BytepadDBModel.tblPaper" Width="1.5" PointX="4.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BytepadDBModel.tblSession" Width="1.5" PointX="7.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BytepadDBModel.tblSubject" Width="1.5" PointX="7.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BytepadDBModel.tblVersion" Width="1.5" PointX="12.625" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="BytepadDBModel.FK_tblPaper_tblAdmin" ManuallyRouted="false" />
+        <AssociationConnector Association="BytepadDBModel.FK_tblPaper_tblExamType" ManuallyRouted="false" />
+        <AssociationConnector Association="BytepadDBModel.FK_tblPaper_tblSession" ManuallyRouted="false" />
+        <AssociationConnector Association="BytepadDBModel.FK_tblPaper_tblSubject" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
