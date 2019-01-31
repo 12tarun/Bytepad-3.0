@@ -19,7 +19,7 @@
             @foreach (var examType in session.examTypes)
             {
                 <br />
-                string id = @session.SessionId.ToString() + @examType.ExamTypeId.ToString();
+                string id ="paper"+ @session.SessionId.ToString() + @examType.ExamTypeId.ToString();
 
                 <div data-toggle="collapse" href="#@id" role="button" aria-expanded="false" aria-controls="@id">
                     <i class="fa fa-arrow-circle-down" style="font-size:12px"></i>
@@ -39,6 +39,7 @@
                             <button class="btn">@Html.ActionLink("View", "viewPaper", new { fileUrl = paper.FileUrl }, new { target = "_blank" })</button>
                         </div>
                     }
+
                 </div>
             }
         </div>
