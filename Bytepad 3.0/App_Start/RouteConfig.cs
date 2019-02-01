@@ -20,11 +20,12 @@ namespace Bytepad_3._0
             );
             routes.MapRoute(
            name: "Error",
-           url: "{id}",
+           url: "{controller}/{action}/{id}",
            defaults: new
            {
                controller = "Error",
-               action = "PageNotFound"
+               action = "NotFound1",
+               id = UrlParameter.Optional
 
            });
         }

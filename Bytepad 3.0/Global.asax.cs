@@ -37,7 +37,7 @@ namespace Bytepad_3._0
             if (isNotFound)
             {
                 Server.ClearError();
-                Response.Redirect("~/Error/NotFound");// Do what you need to render in view
+                Response.Redirect("~");// Do what you need to render in view
             }
         }
     }
