@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBBytepadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BytepadDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAdmin">
           <Key>
             <PropertyRef Name="Id" />
@@ -102,7 +102,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBBytepadModelStoreContainer">
+        <EntityContainer Name="BytepadDBModelStoreContainer">
           <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblExamType" EntityType="Self.tblExamType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPaper" EntityType="Self.tblPaper" Schema="dbo" store:Type="Tables" />
@@ -130,7 +130,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBBytepadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BytepadDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tblAdmin">
           <Key>
             <PropertyRef Name="Id" />
@@ -265,9 +265,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBBytepadModelStoreContainer" CdmEntityContainer="BytepadDBEntities">
+        <EntityContainerMapping StorageEntityContainer="BytepadDBModelStoreContainer" CdmEntityContainer="BytepadDBEntities">
           <EntitySetMapping Name="tblAdmins">
-            <EntityTypeMapping TypeName="DBBytepadModel.tblAdmin">
+            <EntityTypeMapping TypeName="BytepadDBModel.tblAdmin">
               <MappingFragment StoreEntitySet="tblAdmin">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -276,7 +276,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblExamTypes">
-            <EntityTypeMapping TypeName="DBBytepadModel.tblExamType">
+            <EntityTypeMapping TypeName="BytepadDBModel.tblExamType">
               <MappingFragment StoreEntitySet="tblExamType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ExamType" ColumnName="ExamType" />
@@ -284,7 +284,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblPapers">
-            <EntityTypeMapping TypeName="DBBytepadModel.tblPaper">
+            <EntityTypeMapping TypeName="BytepadDBModel.tblPaper">
               <MappingFragment StoreEntitySet="tblPaper">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AdminId" ColumnName="AdminId" />
@@ -298,7 +298,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblSessions">
-            <EntityTypeMapping TypeName="DBBytepadModel.tblSession">
+            <EntityTypeMapping TypeName="BytepadDBModel.tblSession">
               <MappingFragment StoreEntitySet="tblSession">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Session" ColumnName="Session" />
@@ -306,7 +306,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblSubjects">
-            <EntityTypeMapping TypeName="DBBytepadModel.tblSubject">
+            <EntityTypeMapping TypeName="BytepadDBModel.tblSubject">
               <MappingFragment StoreEntitySet="tblSubject">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
@@ -314,7 +314,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblVersions">
-            <EntityTypeMapping TypeName="DBBytepadModel.tblVersion">
+            <EntityTypeMapping TypeName="BytepadDBModel.tblVersion">
               <MappingFragment StoreEntitySet="tblVersion">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="LastAddPaperTime" ColumnName="LastAddPaperTime" />

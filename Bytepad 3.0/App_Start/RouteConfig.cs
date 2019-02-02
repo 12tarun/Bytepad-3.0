@@ -18,16 +18,6 @@ namespace Bytepad_3._0
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Error", action = "NotFound", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
-           name: "Error",
-           url: "{controller}/{action}/{id}",
-           defaults: new
-           {
-               controller = "Error",
-               action = "NotFound1",
-               id = UrlParameter.Optional
-
-           });
         }
     }
 }
