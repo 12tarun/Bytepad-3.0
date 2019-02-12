@@ -34,7 +34,8 @@ namespace Bytepad_3._0.Models
                     // Filling subject table with new subjects
 
                     string[] inputFileNames = item.FileName.Split('/');
-                    _subject.SubjectName = inputFileNames[1].ToString().ToLower();
+                    _subject.SubjectName = inputFileNames[1].ToString().ToLower().Trim();
+                    _subject.SubjectName = string.Join(" ", _subject.SubjectName.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
                     if (_subject.SubjectName != null)
                     {
                         _subject.SubjectName = _subject.SubjectName.Replace(@".DOCX", "");
