@@ -7,6 +7,14 @@ namespace Bytepad_3._0.Models
 {
     public class Paper : IPaper
     {
+
+        private ISubject _subject = null;
+        public Paper(ISubject subject)
+        {
+            _subject = subject;
+        }
+        public Paper() { }
+
         public int Id { get; set; }
         public int AdminId { get; set; }
         public int SessionId { get; set; }
@@ -15,25 +23,29 @@ namespace Bytepad_3._0.Models
         public int SemesterType { get; set; }
         public string PaperType { get; set; }
         public string FileUrl { get; set; }
+        public string SubjectName { get; set; }
+
+
 
         public List<Paper> getPapersBySessionAndExamType(int sessionId,int examId)
         {
             List<Paper> allPapers=new List<Paper>();
             using (BytepadDBEntities db = new BytepadDBEntities())
             {
-               List<tblPaper> papers= db.tblPapers.Where(x=>x.SessionId==sessionId&&x.ExamTypeId==examId).ToList();
+               List<tblPaper> papers=db.tblPapers.Where(x=>x.SessionId==sessionId&&x.ExamTypeId==examId).ToList();
                 foreach(var paper in papers)
                 {
                     Paper newPaper = new Paper
                     {
-                        Id=paper.Id,
-                        SessionId=paper.SessionId,
-                        AdminId=paper.AdminId,
-                        SubjectId=paper.SubjectId,
-                        ExamTypeId=paper.ExamTypeId,
-                        SemesterType=Convert.ToInt32( paper.SemesterType),
-                        PaperType=paper.PaperType,
-                        FileUrl=paper.FileUrl
+                        Id = paper.Id,
+                        SessionId = paper.SessionId,
+                        AdminId = paper.AdminId,
+                        SubjectId = paper.SubjectId,
+                        ExamTypeId = paper.ExamTypeId,
+                        SemesterType = Convert.ToInt32(paper.SemesterType),
+                        PaperType = paper.PaperType,
+                        FileUrl = paper.FileUrl,
+                        SubjectName = _subject.subjectDetailsById(paper.SubjectId)
                     };
                     allPapers.Add(newPaper);
                 }
@@ -104,7 +116,6 @@ namespace Bytepad_3._0.Models
             }
             return present;
         }
-
         public void AddPaper(IPaper dataPaper)
         {
             try
@@ -130,7 +141,6 @@ namespace Bytepad_3._0.Models
                 string error = ex.ToString();
             }
         }
-
         public List<Paper> FindPapersBySubjectId(int id)
         {
             List<Paper> PapersOfSameSubject = new List<Paper>();
@@ -151,7 +161,8 @@ namespace Bytepad_3._0.Models
                                 ExamTypeId = paper.ExamTypeId,
                                 SemesterType =Convert.ToInt32(paper.SemesterType),
                                 PaperType = paper.PaperType,
-                                FileUrl = paper.FileUrl
+                                FileUrl = paper.FileUrl,
+                                SubjectName = _subject.subjectDetailsById(paper.SubjectId)
                             });
 
                         }
@@ -164,7 +175,6 @@ namespace Bytepad_3._0.Models
             }
             return PapersOfSameSubject;
         }
-
         public List<Paper> GetAllPapers()
         {
             List<Paper> dataPapers = new List<Paper>();
@@ -185,7 +195,8 @@ namespace Bytepad_3._0.Models
                             ExamTypeId = item.ExamTypeId,
                             SemesterType = Convert.ToInt32(item.SemesterType),
                             FileUrl = item.FileUrl,
-                            PaperType = item.PaperType
+                            PaperType = item.PaperType,
+                            SubjectName = _subject.subjectDetailsById(item.SubjectId)
                         });
                     }
                 }

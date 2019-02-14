@@ -35,7 +35,6 @@ namespace Bytepad_3._0.Models
             }
             return dataSubject;
         }
-
         public int AddSubjects(ISubject dataSubject)
         {
             tblSubject dataTblSubject = new tblSubject();
@@ -54,7 +53,6 @@ namespace Bytepad_3._0.Models
             }
             return dataTblSubject.Id;
         }
-
         public int FindSubject(ISubject dataSubject)
 
         {

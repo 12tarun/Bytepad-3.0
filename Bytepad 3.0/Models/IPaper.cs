@@ -12,10 +12,12 @@ namespace Bytepad_3._0.Models
         int SemesterType { get; set; }
         int SessionId { get; set; }
         int SubjectId { get; set; }
+        string SubjectName { get; set; }
+
         void AddPaper(IPaper dataPaper);
-        bool FindPaper(string dataPaper);
-        List<Paper> FindPapersBySubjectId(int id);
         void DeletePaperByID(int id);
+        bool FindPaper(string fileUrl);
+        List<Paper> FindPapersBySubjectId(int id);
         List<Paper> GetAllPapers();
         List<Paper> getPapersBySessionAndExamType(int sessionId, int examId);
         void RemovePaperBySession(int sessionId);

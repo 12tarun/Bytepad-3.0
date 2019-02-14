@@ -196,7 +196,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="index.html" />
-    <Content Include="main.fdfff6e754be057bc7fc.js" />
     <Content Include="polyfills.fb087d5ed4ca4d598c4b.js" />
     <Content Include="runtime.b57bf819d5bdce77f1c7.js" />
     <Content Include="scripts.7433f3276ddf37fa9320.js" />
@@ -246,7 +245,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="styles.4fa9b63a0191618a1463.css" />
     <Content Include="Views\error.html" />
     <Content Include="Web.config" />
     <Content Include="Views\Viewpapers\Index.cshtml" />
